@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useScrollDirection } from "@/hooks/use-scroll-direction"
 import { useLanguage } from "@/lib/i18n"
 import { LanguageToggle } from "@/components/language-toggle"
+import { AnimatedCounter } from "@/components/animated-counter"
 
 const videos = [
   "https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/solarvid.mp4",
@@ -384,20 +385,36 @@ export function Hero() {
 
           {/* Stats + Trust Badges - Combined row on mobile, separate on desktop */}
           <div className="mt-6 md:mt-8 lg:mt-12 flex flex-col items-center gap-3 md:gap-6">
-            {/* Stats Bar */}
+            {/* Stats Bar - Animated Counters */}
             <div className="flex items-center justify-center gap-3 md:gap-8 lg:gap-16 text-white/80">
               <div className="flex flex-col items-center">
-                <span className="text-lg md:text-2xl lg:text-4xl font-medium text-white">$12M+</span>
+                <AnimatedCounter
+                  value={12}
+                  prefix="$"
+                  suffix="M+"
+                  duration={2000}
+                  className="text-lg md:text-2xl lg:text-4xl font-medium text-white"
+                />
                 <span className="text-[9px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.saved}</span>
               </div>
               <div className="h-5 md:h-8 lg:h-12 w-px bg-white/20" />
               <div className="flex flex-col items-center">
-                <span className="text-lg md:text-2xl lg:text-4xl font-medium text-white">2,500+</span>
+                <AnimatedCounter
+                  value={2500}
+                  suffix="+"
+                  duration={2000}
+                  className="text-lg md:text-2xl lg:text-4xl font-medium text-white"
+                />
                 <span className="text-[9px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.families}</span>
               </div>
               <div className="h-5 md:h-8 lg:h-12 w-px bg-white/20" />
               <div className="flex flex-col items-center">
-                <span className="text-lg md:text-2xl lg:text-4xl font-medium text-white">25 Yrs</span>
+                <AnimatedCounter
+                  value={25}
+                  suffix=" Yrs"
+                  duration={1500}
+                  className="text-lg md:text-2xl lg:text-4xl font-medium text-white"
+                />
                 <span className="text-[9px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.warranty}</span>
               </div>
             </div>
