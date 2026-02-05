@@ -96,7 +96,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-slate-950/30" />
       
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col">
+      <div className="relative z-10 flex min-h-screen flex-col">
         {/* Navigation - World-class scroll animation */}
         <AnimatePresence>
           {headerVisible && (
@@ -265,8 +265,8 @@ export function Hero() {
           )}
         </AnimatePresence>
 
-        {/* Hero Content - Centered vertically on mobile, upper portion on desktop */}
-        <div className="flex flex-1 flex-col items-center justify-center md:justify-start px-4 md:px-6 pt-20 md:pt-32 pb-16 md:pb-0 text-center">
+        {/* Hero Content - Truly centered vertically on mobile */}
+        <div className="flex flex-1 flex-col items-center justify-center px-4 md:px-6 py-4 md:pt-32 md:pb-0 text-center">
           {/* RIV Solar Logo - Hidden on mobile, visible on tablet+ */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -299,12 +299,12 @@ export function Hero() {
             ))}
           </h1>
 
-          <p className="mt-3 md:mt-6 lg:mt-10 max-w-sm md:max-w-xl lg:max-w-3xl text-balance text-center text-xs md:text-base lg:text-xl leading-relaxed text-white/80 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <p className="mt-4 md:mt-6 lg:mt-10 max-w-xs md:max-w-xl lg:max-w-3xl text-balance text-center text-sm md:text-base lg:text-xl leading-relaxed text-white/80 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             {t.hero.subheadline}
           </p>
 
           {/* Stats + Trust Badges - Combined row on mobile, separate on desktop */}
-          <div className="mt-4 md:mt-8 lg:mt-12 flex flex-col items-center gap-3 md:gap-6">
+          <div className="mt-6 md:mt-8 lg:mt-12 flex flex-col items-center gap-3 md:gap-6">
             {/* Stats Bar */}
             <div className="flex items-center justify-center gap-3 md:gap-8 lg:gap-16 text-white/80">
               <div className="flex flex-col items-center">
@@ -337,7 +337,7 @@ export function Hero() {
           </div>
 
           {/* CTAs - AI Calculator first (matches headline promise), Talk to Pro second */}
-          <div className="mt-4 md:mt-6 lg:mt-10 flex flex-col items-center gap-2 md:gap-3 lg:gap-4 sm:flex-row w-full sm:w-auto px-4 sm:px-0">
+          <div className="mt-6 md:mt-6 lg:mt-10 flex flex-col items-center gap-3 md:gap-3 lg:gap-4 sm:flex-row w-full sm:w-auto px-4 sm:px-0">
             <Link href="/ai-tools" className="w-full sm:w-auto">
               <Button
                 size="lg"
