@@ -18,7 +18,7 @@ export function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12"
+          className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12"
         >
           {/* Services */}
           <motion.div variants={staggerItem}>
@@ -60,6 +60,16 @@ export function Footer() {
               <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.rivChatbot}</Link></li>
               <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.billAnalyzer}</Link></li>
               <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.savingsCalculator}</Link></li>
+            </ul>
+          </motion.div>
+
+          {/* Service Areas */}
+          <motion.div variants={staggerItem}>
+            <h4 className="text-white font-medium mb-4">Service Areas</h4>
+            <ul className="space-y-2">
+              <li className="text-sm text-zinc-400">California</li>
+              <li className="text-sm text-zinc-400">Florida</li>
+              <li className="text-sm text-zinc-400">Puerto Rico</li>
             </ul>
           </motion.div>
 

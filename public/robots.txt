@@ -1,0 +1,14 @@
+# robots.txt for RIV Solar
+# https://rivsolar.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://rivsolar.com/sitemap.xml
+
+# Crawl-delay (optional, be nice to servers)
+Crawl-delay: 1
+
+# Block admin/api routes from indexing
+Disallow: /api/

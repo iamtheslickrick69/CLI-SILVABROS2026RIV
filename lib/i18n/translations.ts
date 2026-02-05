@@ -14,8 +14,8 @@ export const translations = {
 
     // Hero Section
     hero: {
-      headline: "Power your home with California sunshine",
-      subheadline: "AI-powered tools that show your exact savings. No pushy sales tactics. Just honest solar solutions for California families.",
+      headline: "Power your home with sunshine",
+      subheadline: "AI-powered tools that show your exact savings. No pushy sales tactics. Just honest solar solutions for families in California, Florida & Puerto Rico.",
       stats: {
         saved: "Saved",
         families: "Families",
@@ -34,8 +34,8 @@ export const translations = {
     // Problem Section
     problem: {
       badge: "The Problem",
-      headline: "California Utilities Are Out of Control",
-      description: "PG&E rates jumped from 21¢ to 48¢ since 2014. The average family now pays $350-500/month. And it's about to get worse — all new cars electric by 2035, AI data centers doubling demand. Projected bills: $600-700/month by 2030.",
+      headline: "Utility Bills Are Out of Control",
+      description: "Utility rates have skyrocketed across America. California, Florida, and Puerto Rico families now pay $300-500/month. And it's about to get worse — EVs going mainstream, AI data centers doubling demand. Projected bills: $600-800/month by 2030.",
       stats: {
         rateIncrease: "Rate increase since 2014",
         blackouts: "Californians hit by planned blackouts",
@@ -70,7 +70,7 @@ export const translations = {
         features: [
           "Available 24/7 - instant responses",
           "Zero sales pressure, just answers",
-          "PG&E, SDG&E, SCE rate expertise",
+          "CA, FL & PR utility rate expertise",
         ],
         cta: "Chat with RIV",
       },
@@ -126,7 +126,7 @@ export const translations = {
     // Features Section
     features: {
       badge: "Why RIV Solar",
-      headline: "Californians Helping Californians",
+      headline: "Neighbors Helping Neighbors",
       items: [
         {
           title: "AI-Powered Tools",
@@ -149,8 +149,8 @@ export const translations = {
           description: "No subcontractors. Our people, our standards. Certified installers who take pride in their work.",
         },
         {
-          title: "Local CA Experts",
-          description: "We know PG&E, SDG&E, and SCE inside and out. Californians helping Californians navigate the energy transition.",
+          title: "Local Experts",
+          description: "We know CA, FL & PR utilities inside and out. Local teams helping neighbors navigate the energy transition.",
         },
       ],
       cta: {
@@ -162,7 +162,7 @@ export const translations = {
     // Testimonials Section
     testimonials: {
       badge: "Testimonials",
-      headline: "What California Families Say About RIV.",
+      headline: "What Our Families Say About RIV.",
       before: "Before",
       after: "After",
       reviews: [
@@ -203,11 +203,11 @@ export const translations = {
     faq: {
       badge: "FAQ",
       headline: "Common Questions",
-      description: "Get quick answers about going solar in California, NEM 3.0, financing options, and why RIV Solar is different. Can't find what you're looking for? Chat with our AI or talk to a pro.",
+      description: "Get quick answers about going solar in California, Florida, Puerto Rico, financing options, and why RIV Solar is different. Can't find what you're looking for? Chat with our AI or talk to a pro.",
       items: [
         {
           question: "How much can I save with solar?",
-          answer: "Most California homeowners save 70-90% on electricity bills. With utility rates increasing 7-9% annually, the typical family saves $1,000-2,000 per year, adding up to $25,000-50,000+ over 25 years. Our AI Bill Analyzer can show you exactly what you'll save based on your actual usage.",
+          answer: "Most homeowners save 70-90% on electricity bills. With utility rates increasing 7-9% annually, the typical family saves $1,000-2,000 per year, adding up to $25,000-50,000+ over 25 years. Our AI Bill Analyzer can show you exactly what you'll save based on your actual usage.",
         },
         {
           question: "What is NEM 3.0 and how does it affect me?",
@@ -227,7 +227,11 @@ export const translations = {
         },
         {
           question: "Why choose RIV Solar over other companies?",
-          answer: "We're Californians helping Californians. We use Tier-1 equipment (QCells, REC, Silfab), have in-house crews (no subcontractors), offer AI-powered tools no competitor has, and take a transparent, no-pressure approach. We educate, not manipulate.",
+          answer: "We're neighbors helping neighbors across California, Florida, and Puerto Rico. We use Tier-1 equipment (QCells, REC, Silfab), have in-house crews (no subcontractors), offer AI-powered tools no competitor has, and take a transparent, no-pressure approach. We educate, not manipulate.",
+        },
+        {
+          question: "Do you serve Florida and Puerto Rico?",
+          answer: "Yes! RIV Solar proudly serves California, Florida, and Puerto Rico. Each region has different utility rates and incentives — our AI tools are trained on local rate structures including FPL, Duke Energy, LUMA, and more to give you accurate savings estimates.",
         },
       ],
     },
@@ -262,7 +266,7 @@ export const translations = {
       billAnalyzer: "Bill Analyzer",
       savingsCalculator: "Savings Calculator",
       connect: "Connect",
-      copyright: "© 2026 RIV Solar. All rights reserved. Californians helping Californians go solar.",
+      copyright: "© 2026 RIV Solar. All rights reserved. Serving California, Florida & Puerto Rico.",
       privacy: "Privacy",
       terms: "Terms Of Use",
     },
@@ -274,7 +278,7 @@ export const translations = {
       onlineNow: "Online now",
       chatTab: "Chat",
       analyzeTab: "Analyze",
-      welcomeMessage: "Hey! I'm RIV, your solar assistant. Ask me anything about going solar in California!",
+      welcomeMessage: "Hey! I'm RIV, your solar assistant. Ask me anything about going solar in California, Florida, or Puerto Rico!",
       quickReplies: [
         "How much can I save?",
         "What's NEM 3.0?",
@@ -328,8 +332,8 @@ export const translations = {
 
     // Hero Section
     hero: {
-      headline: "Energiza tu hogar con el sol de California",
-      subheadline: "Herramientas con inteligencia artificial que muestran tus ahorros exactos. Sin tácticas de venta agresivas. Solo soluciones solares honestas para familias de California.",
+      headline: "Energiza tu hogar con el sol",
+      subheadline: "Herramientas con inteligencia artificial que muestran tus ahorros exactos. Sin tácticas de venta agresivas. Soluciones solares honestas para familias en California, Florida y Puerto Rico.",
       stats: {
         saved: "Ahorrados",
         families: "Familias",
@@ -348,8 +352,8 @@ export const translations = {
     // Problem Section
     problem: {
       badge: "El Problema",
-      headline: "Las Compañías Eléctricas de California Están Fuera de Control",
-      description: "Las tarifas de PG&E subieron de 21¢ a 48¢ desde 2014. La familia promedio ahora paga $350-500/mes. Y va a empeorar — todos los autos nuevos serán eléctricos para 2035, los centros de datos de IA duplicando la demanda. Facturas proyectadas: $600-700/mes para 2030.",
+      headline: "Las Facturas de Luz Están Fuera de Control",
+      description: "Las tarifas eléctricas se han disparado en todo Estados Unidos. Las familias en California, Florida y Puerto Rico ahora pagan $300-500/mes. Y va a empeorar — vehículos eléctricos en auge, centros de datos de IA duplicando la demanda. Facturas proyectadas: $600-800/mes para 2030.",
       stats: {
         rateIncrease: "Aumento de tarifas desde 2014",
         blackouts: "Californianos afectados por apagones planificados",
@@ -384,7 +388,7 @@ export const translations = {
         features: [
           "Disponible 24/7 - respuestas instantáneas",
           "Cero presión de ventas, solo respuestas",
-          "Expertos en tarifas de PG&E, SDG&E, SCE",
+          "Expertos en tarifas de CA, FL y PR",
         ],
         cta: "Chatea con RIV",
       },
@@ -440,7 +444,7 @@ export const translations = {
     // Features Section
     features: {
       badge: "Por Qué RIV Solar",
-      headline: "Californianos Ayudando a Californianos",
+      headline: "Vecinos Ayudando a Vecinos",
       items: [
         {
           title: "Herramientas con IA",
@@ -463,8 +467,8 @@ export const translations = {
           description: "Sin subcontratistas. Nuestra gente, nuestros estándares. Instaladores certificados que se enorgullecen de su trabajo.",
         },
         {
-          title: "Expertos Locales de CA",
-          description: "Conocemos PG&E, SDG&E y SCE a fondo. Californianos ayudando a californianos a navegar la transición energética.",
+          title: "Expertos Locales",
+          description: "Conocemos las compañías de CA, FL y PR a fondo. Equipos locales ayudando a vecinos a navegar la transición energética.",
         },
       ],
       cta: {
@@ -476,7 +480,7 @@ export const translations = {
     // Testimonials Section
     testimonials: {
       badge: "Testimonios",
-      headline: "Lo Que Dicen las Familias de California Sobre RIV.",
+      headline: "Lo Que Dicen Nuestras Familias Sobre RIV.",
       before: "Antes",
       after: "Después",
       reviews: [
@@ -517,11 +521,11 @@ export const translations = {
     faq: {
       badge: "Preguntas Frecuentes",
       headline: "Preguntas Comunes",
-      description: "Obtén respuestas rápidas sobre energía solar en California, NEM 3.0, opciones de financiamiento y por qué RIV Solar es diferente. ¿No encuentras lo que buscas? Chatea con nuestra IA o habla con un experto.",
+      description: "Obtén respuestas rápidas sobre energía solar en California, Florida, Puerto Rico, opciones de financiamiento y por qué RIV Solar es diferente. ¿No encuentras lo que buscas? Chatea con nuestra IA o habla con un experto.",
       items: [
         {
           question: "¿Cuánto puedo ahorrar con energía solar?",
-          answer: "La mayoría de los propietarios de California ahorran 70-90% en facturas de electricidad. Con las tarifas aumentando 7-9% anualmente, la familia típica ahorra $1,000-2,000 por año, sumando $25,000-50,000+ en 25 años. Nuestro Analizador de Facturas IA puede mostrarte exactamente cuánto ahorrarás basado en tu consumo real.",
+          answer: "La mayoría de los propietarios ahorran 70-90% en facturas de electricidad. Con las tarifas aumentando 7-9% anualmente, la familia típica ahorra $1,000-2,000 por año, sumando $25,000-50,000+ en 25 años. Nuestro Analizador de Facturas IA puede mostrarte exactamente cuánto ahorrarás basado en tu consumo real.",
         },
         {
           question: "¿Qué es NEM 3.0 y cómo me afecta?",
@@ -541,7 +545,11 @@ export const translations = {
         },
         {
           question: "¿Por qué elegir RIV Solar sobre otras empresas?",
-          answer: "Somos californianos ayudando a californianos. Usamos equipos de primera categoría (QCells, REC, Silfab), tenemos equipos internos (sin subcontratistas), ofrecemos herramientas con IA que ningún competidor tiene, y tomamos un enfoque transparente y sin presión. Educamos, no manipulamos.",
+          answer: "Somos vecinos ayudando a vecinos en California, Florida y Puerto Rico. Usamos equipos de primera categoría (QCells, REC, Silfab), tenemos equipos internos (sin subcontratistas), ofrecemos herramientas con IA que ningún competidor tiene, y tomamos un enfoque transparente y sin presión. Educamos, no manipulamos.",
+        },
+        {
+          question: "¿Sirven en Florida y Puerto Rico?",
+          answer: "¡Sí! RIV Solar sirve con orgullo a California, Florida y Puerto Rico. Cada región tiene diferentes tarifas e incentivos — nuestras herramientas IA están entrenadas en estructuras de tarifas locales incluyendo FPL, Duke Energy, LUMA y más para darte estimaciones de ahorro precisas.",
         },
       ],
     },
@@ -576,7 +584,7 @@ export const translations = {
       billAnalyzer: "Analizador de Facturas",
       savingsCalculator: "Calculadora de Ahorros",
       connect: "Conectar",
-      copyright: "© 2026 RIV Solar. Todos los derechos reservados. Californianos ayudando a californianos a usar energía solar.",
+      copyright: "© 2026 RIV Solar. Todos los derechos reservados. Sirviendo California, Florida y Puerto Rico.",
       privacy: "Privacidad",
       terms: "Términos de Uso",
     },
@@ -588,7 +596,7 @@ export const translations = {
       onlineNow: "En línea ahora",
       chatTab: "Chat",
       analyzeTab: "Analizar",
-      welcomeMessage: "¡Hola! Soy RIV, tu asistente solar. ¡Pregúntame lo que quieras sobre energía solar en California!",
+      welcomeMessage: "¡Hola! Soy RIV, tu asistente solar. ¡Pregúntame lo que quieras sobre energía solar en California, Florida o Puerto Rico!",
       quickReplies: [
         "¿Cuánto puedo ahorrar?",
         "¿Qué es NEM 3.0?",

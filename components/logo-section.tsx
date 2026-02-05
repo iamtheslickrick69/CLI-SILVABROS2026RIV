@@ -111,7 +111,7 @@ export function LogoSection() {
           transition={{ delay: 0.3 }}
           className="text-center text-zinc-500 text-sm mt-10 md:mt-12 px-6"
         >
-          Partnered with California&apos;s most trusted solar providers
+          Partnered with America&apos;s most trusted solar providers
         </motion.p>
       </div>
     </section>
