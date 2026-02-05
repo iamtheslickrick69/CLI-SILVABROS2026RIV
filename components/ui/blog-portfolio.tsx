@@ -143,13 +143,33 @@ interface BlogPortfolioProps {
   config?: Config;
 }
 
+type RegionFilter = 'all' | 'california' | 'florida' | 'puerto-rico';
+
+const regionFilters: { id: RegionFilter; label: string; shortLabel: string }[] = [
+  { id: 'all', label: 'All Regions', shortLabel: 'All' },
+  { id: 'california', label: 'California', shortLabel: 'CA' },
+  { id: 'florida', label: 'Florida', shortLabel: 'FL' },
+  { id: 'puerto-rico', label: 'Puerto Rico', shortLabel: 'PR' },
+];
+
+function filterBlogsByRegion(blogs: BlogPost[], region: RegionFilter): BlogPost[] {
+  if (region === 'all') return blogs;
+  if (region === 'california') return blogs.filter(b => b.id >= 1 && b.id <= 30);
+  if (region === 'florida') return blogs.filter(b => b.id >= 31 && b.id <= 60);
+  if (region === 'puerto-rico') return blogs.filter(b => b.id >= 61 && b.id <= 90);
+  return blogs;
+}
+
 export default function BlogPortfolio({ blogPosts = [], config = {} }: BlogPortfolioProps) {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [isIdle, setIsIdle] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeRegion, setActiveRegion] = useState<RegionFilter>('all');
   const { t } = useLanguage();
   const { direction, isAtTop } = useScrollDirection({ threshold: 10, topOffset: 100 });
   const headerVisible = isAtTop || direction === "up" || direction === null;
+
+  const filteredPosts = filterBlogsByRegion(blogPosts, activeRegion);
 
   const backgroundRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -179,14 +199,14 @@ export default function BlogPortfolio({ blogPosts = [], config = {} }: BlogPortf
     projectItemsRef.current.forEach((item, index) => {
       if (!item) return;
       const hideTime = index * 0.03;
-      const showTime = (blogPosts.length * 0.03 * 0.5) + index * 0.03;
+      const showTime = (filteredPosts.length * 0.03 * 0.5) + index * 0.03;
 
       timeline.to(item, { opacity: 0.2, duration: 0.08, ease: "power2.inOut" }, hideTime);
       timeline.to(item, { opacity: 0.5, duration: 0.08, ease: "power2.inOut" }, showTime);
     });
 
     idleAnimationRef.current = timeline;
-  }, [blogPosts.length]);
+  }, [filteredPosts.length]);
 
   const stopIdleAnimation = useCallback(() => {
     if (idleAnimationRef.current) {
@@ -375,22 +395,58 @@ export default function BlogPortfolio({ blogPosts = [], config = {} }: BlogPortf
         onMouseLeave={handleContainerMouseLeave}
       >
         {/* Page Header */}
-        <header className="mb-10 pt-4">
+        <header className="mb-6 pt-4">
           <div className="flex items-center gap-3 mb-5">
             <div className="w-2 h-2 bg-violet-500" />
-            <span className="text-[11px] uppercase tracking-[0.2em] text-zinc-600">{blogPosts.length} Articles</span>
+            <span className="text-[11px] uppercase tracking-[0.2em] text-zinc-600">{filteredPosts.length} Articles</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-semibold text-white tracking-tight mb-4 font-[family-name:var(--font-barlow-condensed)] uppercase">
             Solar Insights
           </h1>
           <p className="text-sm text-zinc-500 max-w-md leading-relaxed">
-            Expert guides on California solar, NEM 3.0, battery storage, financing, and real savings from real customers.
+            Expert guides on solar panels, NEM 3.0, battery storage, financing, and real savings across California, Florida & Puerto Rico.
           </p>
         </header>
 
+        {/* Region Filter Tabs */}
+        <div className="mb-8 flex flex-wrap gap-2">
+          {regionFilters.map((filter) => {
+            const count = filter.id === 'all'
+              ? blogPosts.length
+              : filterBlogsByRegion(blogPosts, filter.id).length;
+            const isActive = activeRegion === filter.id;
+
+            return (
+              <button
+                key={filter.id}
+                onClick={() => {
+                  setActiveRegion(filter.id);
+                  setActiveIndex(-1);
+                  if (backgroundRef.current) backgroundRef.current.style.opacity = "0";
+                }}
+                className={`group relative px-4 py-2.5 text-[11px] uppercase tracking-[0.15em] font-medium rounded-lg transition-all duration-300 ${
+                  isActive
+                    ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/25'
+                    : 'bg-zinc-800/50 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200 border border-zinc-700/50 hover:border-zinc-600'
+                }`}
+              >
+                <span className="hidden sm:inline">{filter.label}</span>
+                <span className="sm:hidden">{filter.shortLabel}</span>
+                <span className={`ml-2 px-1.5 py-0.5 text-[9px] rounded ${
+                  isActive
+                    ? 'bg-white/20 text-white'
+                    : 'bg-zinc-700/50 text-zinc-500 group-hover:bg-zinc-700 group-hover:text-zinc-400'
+                }`}>
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* Blog list */}
         <ul className="space-y-0" role="list">
-          {blogPosts.map((blog, index) => (
+          {filteredPosts.map((blog, index) => (
             <BlogItem
               key={blog.id}
               blog={blog}
@@ -404,6 +460,13 @@ export default function BlogPortfolio({ blogPosts = [], config = {} }: BlogPortf
             />
           ))}
         </ul>
+
+        {/* Empty state */}
+        {filteredPosts.length === 0 && (
+          <div className="py-16 text-center">
+            <p className="text-zinc-500 text-sm">No articles found for this region.</p>
+          </div>
+        )}
 
         {/* Footer CTA */}
         <div className="mt-12 md:mt-16 pt-8 border-t border-zinc-800/50">
