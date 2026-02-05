@@ -42,13 +42,25 @@ export function Hero() {
   }, [headerVisible]);
 
   useEffect(() => {
-    // Preload all videos for smooth transitions
-    videos.forEach((_, index) => {
-      const video = videoRefs.current[index];
-      if (video) {
-        video.load();
-      }
-    });
+    // Only preload the first video immediately
+    const firstVideo = videoRefs.current[0];
+    if (firstVideo) {
+      firstVideo.load();
+    }
+
+    // Preload next video after a delay (lazy load strategy)
+    const preloadTimeout = setTimeout(() => {
+      videos.forEach((_, index) => {
+        if (index > 0) {
+          const video = videoRefs.current[index];
+          if (video) {
+            video.load();
+          }
+        }
+      });
+    }, 3000); // Preload others after 3 seconds
+
+    return () => clearTimeout(preloadTimeout);
   }, []);
 
   useEffect(() => {
@@ -345,8 +357,8 @@ export function Hero() {
           )}
         </AnimatePresence>
 
-        {/* Hero Content - Truly centered vertically on mobile */}
-        <div className="flex flex-1 flex-col items-center justify-center px-4 md:px-6 py-4 md:pt-32 md:pb-0 text-center">
+        {/* Hero Content - Properly centered with nav clearance on mobile */}
+        <div className="flex flex-1 flex-col items-center justify-center px-4 md:px-6 pt-20 pb-8 md:pt-32 md:pb-0 text-center">
           {/* RIV Solar Logo - Hidden on mobile, visible on tablet+ */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
