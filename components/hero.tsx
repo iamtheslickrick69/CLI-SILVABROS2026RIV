@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Menu, X, Sparkles, Star, Shield, Award } from "lucide-react"
+import { Menu, X, Sparkles, Star, Shield, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
@@ -279,7 +279,7 @@ export function Hero() {
               alt="RIV Solar"
               width={320}
               height={140}
-              className="w-48 md:w-64 lg:w-80 h-auto"
+              className="w-48 md:w-64 lg:w-80 h-auto brightness-125 drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]"
               priority
             />
           </motion.div>
@@ -299,7 +299,7 @@ export function Hero() {
             ))}
           </h1>
 
-          <p className="mt-6 max-w-xl text-balance text-center text-sm leading-relaxed text-white/70 md:text-base">
+          <p className="mt-6 max-w-xl text-balance text-center text-sm leading-relaxed text-white/80 md:text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             {t.hero.subheadline}
           </p>
 
@@ -331,10 +331,6 @@ export function Hero() {
               <Star className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 fill-yellow-400" />
               <span className="text-[10px] md:text-xs font-medium text-white">{t.hero.badges.googleRating}</span>
             </div>
-            <div className="flex items-center gap-1.5 px-2 md:px-3 py-1 md:py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <Award className="w-3 h-3 md:w-4 md:h-4 text-violet-400" />
-              <span className="text-[10px] md:text-xs font-medium text-white">2,500+</span>
-            </div>
           </div>
 
           {/* CTAs - Two buttons side by side - larger touch targets on mobile */}
@@ -361,7 +357,22 @@ export function Hero() {
         </div>
 
         {/* Scroll Indicator - At bottom */}
-        
+        <motion.div
+          className="absolute bottom-6 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.5 }}
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors cursor-pointer"
+            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+          >
+            <span className="text-[10px] uppercase tracking-widest">Scroll</span>
+            <ChevronDown className="w-5 h-5" />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
