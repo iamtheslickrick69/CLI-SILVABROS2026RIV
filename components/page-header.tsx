@@ -114,7 +114,7 @@ function PageHeader({
               <div className="flex items-center gap-3">
                 {/* Connect CTA */}
                 <Link
-                  href="#"
+                  href="/ai-tools"
                   className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold rounded-xl transition-all shadow-lg shadow-violet-500/20"
                 >
                   Get Quote
@@ -161,7 +161,7 @@ function PageHeader({
                 </Link>
                 <div className="mt-2 pt-3 border-t border-white/10">
                   <Link
-                    href="#"
+                    href="/ai-tools"
                     className="flex items-center justify-center gap-2 w-full py-3 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-xl transition-all"
                     onClick={() => setMobileMenuOpen(false)}
                   >

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
+import Link from "next/link";
 
 interface PageCtaProps {
   title: string;
@@ -17,9 +18,9 @@ export function PageCta({
   title,
   subtitle,
   primaryCta,
-  primaryHref = "#",
+  primaryHref = "/ai-tools",
   secondaryCta,
-  secondaryHref = "#",
+  secondaryHref = "/ai-tools",
 }: PageCtaProps) {
   return (
     <section className="relative w-full overflow-hidden">
@@ -54,18 +55,22 @@ export function PageCta({
             {subtitle}
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Button size="lg" className="bg-white px-8 text-black hover:bg-white/90">
-              {primaryCta}
-            </Button>
-            {secondaryCta && (
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/30 bg-transparent px-8 text-white hover:bg-white/10 hover:text-white"
-              >
-                <Sparkles className="mr-2 h-4 w-4" />
-                {secondaryCta}
+            <Link href={primaryHref}>
+              <Button size="lg" className="bg-white px-8 text-black hover:bg-white/90">
+                {primaryCta}
               </Button>
+            </Link>
+            {secondaryCta && (
+              <Link href={secondaryHref}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/30 bg-transparent px-8 text-white hover:bg-white/10 hover:text-white"
+                >
+                  <Sparkles className="mr-2 h-4 w-4" />
+                  {secondaryCta}
+                </Button>
+              </Link>
             )}
           </div>
         </div>

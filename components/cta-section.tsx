@@ -6,6 +6,7 @@ import { Sparkles } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 import { useLanguage } from "@/lib/i18n";
+import Link from "next/link";
 
 const videos = [
   "https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/homvevid7.mp4",
@@ -107,20 +108,24 @@ export function CtaSection() {
             variants={fadeInUp}
             className="mt-8 flex flex-col gap-4 sm:flex-row"
           >
-            <Button
-              size="lg"
-              className="bg-white px-8 text-black hover:bg-white/90 uppercase font-semibold tracking-wide"
-            >
-              {t.cta.scheduleCall}
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/30 bg-transparent px-8 text-white hover:bg-white/10 hover:text-white uppercase font-semibold tracking-wide"
-            >
-              <Sparkles className="mr-2 h-4 w-4" />
-              {t.cta.tryCalculator}
-            </Button>
+            <Link href="/ai-tools">
+              <Button
+                size="lg"
+                className="bg-white px-8 text-black hover:bg-white/90 uppercase font-semibold tracking-wide"
+              >
+                {t.cta.scheduleCall}
+              </Button>
+            </Link>
+            <Link href="/ai-tools">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/30 bg-transparent px-8 text-white hover:bg-white/10 hover:text-white uppercase font-semibold tracking-wide"
+              >
+                <Sparkles className="mr-2 h-4 w-4" />
+                {t.cta.tryCalculator}
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </motion.div>

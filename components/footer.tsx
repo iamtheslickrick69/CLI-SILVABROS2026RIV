@@ -24,10 +24,10 @@ export function Footer() {
           <motion.div variants={staggerItem}>
             <h4 className="text-white font-medium mb-4">{t.footer.services}</h4>
             <ul className="space-y-2">
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.residentialSolar}</Link></li>
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.batteryStorage}</Link></li>
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.solarFinancing}</Link></li>
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.freeConsultation}</Link></li>
+              <li><Link href="/solution" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.residentialSolar}</Link></li>
+              <li><Link href="/solution" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.batteryStorage}</Link></li>
+              <li><Link href="/solution" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.solarFinancing}</Link></li>
+              <li><Link href="/ai-tools" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.freeConsultation}</Link></li>
             </ul>
           </motion.div>
 
@@ -35,10 +35,10 @@ export function Footer() {
           <motion.div variants={staggerItem}>
             <h4 className="text-white font-medium mb-4">{t.footer.utilities}</h4>
             <ul className="space-y-2">
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.pgeCustomers}</Link></li>
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.sdgeCustomers}</Link></li>
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.sceCustomers}</Link></li>
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.nem3Guide}</Link></li>
+              <li><Link href="/solar/california" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.pgeCustomers}</Link></li>
+              <li><Link href="/solar/california" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.sdgeCustomers}</Link></li>
+              <li><Link href="/solar/california" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.sceCustomers}</Link></li>
+              <li><Link href="/insights/what-is-nem-3-how-affect-solar-savings" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.nem3Guide}</Link></li>
             </ul>
           </motion.div>
 
@@ -46,10 +46,10 @@ export function Footer() {
           <motion.div variants={staggerItem}>
             <h4 className="text-white font-medium mb-4">{t.footer.company}</h4>
             <ul className="space-y-2">
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.aboutUs}</Link></li>
+              <li><Link href="/solution" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.aboutUs}</Link></li>
               <li><Link href="/reviews" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.reviews}</Link></li>
               <li><Link href="/careers" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.careers}</Link></li>
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.contact}</Link></li>
+              <li><Link href="/ai-tools" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.contact}</Link></li>
             </ul>
           </motion.div>
 
@@ -57,9 +57,9 @@ export function Footer() {
           <motion.div variants={staggerItem}>
             <h4 className="text-white font-medium mb-4">{t.footer.aiToolsTitle}</h4>
             <ul className="space-y-2">
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.rivChatbot}</Link></li>
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.billAnalyzer}</Link></li>
-              <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.savingsCalculator}</Link></li>
+              <li><Link href="/ai-tools" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.rivChatbot}</Link></li>
+              <li><Link href="/ai-tools" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.billAnalyzer}</Link></li>
+              <li><Link href="/ai-tools" className="text-sm text-zinc-400 hover:text-white transition-colors">{t.footer.savingsCalculator}</Link></li>
             </ul>
           </motion.div>
 
@@ -67,9 +67,9 @@ export function Footer() {
           <motion.div variants={staggerItem}>
             <h4 className="text-white font-medium mb-4">Service Areas</h4>
             <ul className="space-y-2">
-              <li className="text-sm text-zinc-400">California</li>
-              <li className="text-sm text-zinc-400">Florida</li>
-              <li className="text-sm text-zinc-400">Puerto Rico</li>
+              <li><Link href="/solar/california" className="text-sm text-zinc-400 hover:text-white transition-colors">California</Link></li>
+              <li><Link href="/solar/florida" className="text-sm text-zinc-400 hover:text-white transition-colors">Florida</Link></li>
+              <li><Link href="/solar/puerto-rico" className="text-sm text-zinc-400 hover:text-white transition-colors">Puerto Rico</Link></li>
             </ul>
           </motion.div>
 

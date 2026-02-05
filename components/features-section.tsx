@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { fadeInUp, staggerContainer, staggerItem, viewportSettings } from "@/lib/animations";
 import { useLanguage } from "@/lib/i18n";
+import Link from "next/link";
 
 const featureIcons = [
   <Sparkles key="1" className="w-5 h-5 text-white" />,
@@ -148,19 +149,23 @@ export function FeaturesSection({
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button
-            size="lg"
-            className="bg-white text-zinc-900 hover:bg-zinc-200 px-8"
-          >
-            {t.features.cta.getQuote}
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-zinc-600 text-white hover:bg-zinc-800 bg-transparent px-8"
-          >
-            {t.features.cta.chatWithAI}
-          </Button>
+          <Link href="/ai-tools">
+            <Button
+              size="lg"
+              className="bg-white text-zinc-900 hover:bg-zinc-200 px-8"
+            >
+              {t.features.cta.getQuote}
+            </Button>
+          </Link>
+          <Link href="/ai-tools">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-zinc-600 text-white hover:bg-zinc-800 bg-transparent px-8"
+            >
+              {t.features.cta.chatWithAI}
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
