@@ -131,7 +131,7 @@ export default function FloridaSolarPage() {
         <PageHeader
           title="Florida Solar Installation"
           subtitle="The Sunshine State deserves sunshine savings. Save 50-80% on your FPL, Duke, or TECO bill with hurricane-rated solar panels and $0 down financing."
-          backgroundImage="https://images.unsplash.com/photo-1605980776566-0486c3ac7617?w=1920&q=80"
+          backgroundImage="https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/house3.jpg"
           breadcrumb="Florida Solar"
           ctaText="Get Florida Quote"
           secondaryCtaText="FL Savings Calculator"
@@ -257,7 +257,7 @@ export default function FloridaSolarPage() {
               </div>
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=800&q=80"
+                  src="https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/rooftop.jpg"
                   alt="Hurricane-rated solar panels in Florida"
                   fill
                   className="object-cover"

@@ -185,23 +185,20 @@ export function Hero() {
                         >
                           <Link
                             href="/solar/california"
-                            className="flex items-center gap-3 px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                            className="block px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all"
                           >
-                            <span className="text-lg">🌴</span>
                             California
                           </Link>
                           <Link
                             href="/solar/florida"
-                            className="flex items-center gap-3 px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                            className="block px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all"
                           >
-                            <span className="text-lg">🌊</span>
                             Florida
                           </Link>
                           <Link
                             href="/solar/puerto-rico"
-                            className="flex items-center gap-3 px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                            className="block px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all"
                           >
-                            <span className="text-lg">🏝️</span>
                             Puerto Rico
                           </Link>
                         </motion.div>
@@ -304,24 +301,24 @@ export function Hero() {
                         <div className="flex flex-col ml-4 border-l border-white/10">
                           <Link
                             href="/solar/california"
-                            className="text-white/60 hover:text-white py-3 px-4 text-sm flex items-center gap-2"
+                            className="text-white/60 hover:text-white py-3 px-4 text-sm"
                             onClick={() => setMobileMenuOpen(false)}
                           >
-                            <span>🌴</span> California
+                            California
                           </Link>
                           <Link
                             href="/solar/florida"
-                            className="text-white/60 hover:text-white py-3 px-4 text-sm flex items-center gap-2"
+                            className="text-white/60 hover:text-white py-3 px-4 text-sm"
                             onClick={() => setMobileMenuOpen(false)}
                           >
-                            <span>🌊</span> Florida
+                            Florida
                           </Link>
                           <Link
                             href="/solar/puerto-rico"
-                            className="text-white/60 hover:text-white py-3 px-4 text-sm flex items-center gap-2"
+                            className="text-white/60 hover:text-white py-3 px-4 text-sm"
                             onClick={() => setMobileMenuOpen(false)}
                           >
-                            <span>🏝️</span> Puerto Rico
+                            Puerto Rico
                           </Link>
                         </div>
                       )}

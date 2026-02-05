@@ -142,7 +142,7 @@ export default function PuertoRicoSolarPage() {
         <PageHeader
           title="Puerto Rico Solar Installation"
           subtitle="Escape LUMA blackouts and rising rates. Solar + battery gives you energy independence, hurricane protection, and 60-90% savings on electricity."
-          backgroundImage="https://images.unsplash.com/photo-1580541631950-7282082b53ce?w=1920&q=80"
+          backgroundImage="https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/IMG_7383.JPG"
           breadcrumb="Puerto Rico Solar"
           ctaText="Get PR Quote"
           secondaryCtaText="Calculate Savings"
@@ -262,7 +262,7 @@ export default function PuertoRicoSolarPage() {
               </div>
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=800&q=80"
+                  src="https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/IMG_7387.JPG"
                   alt="Solar panels with battery backup in Puerto Rico"
                   fill
                   className="object-cover"
