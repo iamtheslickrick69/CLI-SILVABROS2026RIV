@@ -7,16 +7,10 @@ const RivUnifiedWidget = dynamic(() => import('@/components/riv-unified-widget')
   loading: () => null
 })
 
-const StickyMobileCta = dynamic(() => import('@/components/sticky-mobile-cta').then(mod => ({ default: mod.StickyMobileCta })), {
-  ssr: false,
-  loading: () => null
-})
-
 export function ClientWidgets() {
   return (
     <>
       <RivUnifiedWidget />
-      <StickyMobileCta />
     </>
   )
 }
