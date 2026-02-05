@@ -38,6 +38,26 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Regional Landing Pages -->
+  <url>
+    <loc>https://rivsolar.com/solar/california</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://rivsolar.com/solar/florida</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://rivsolar.com/solar/puerto-rico</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- Blog/Insights Index -->
   <url>
     <loc>https://rivsolar.com/insights</loc>
@@ -223,6 +243,70 @@
   </url>
   <url>
     <loc>https://rivsolar.com/insights/how-choose-solar-company-california-red-flags</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Florida Blog Posts -->
+  <url>
+    <loc>https://rivsolar.com/insights/is-solar-worth-it-florida-2026</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivsolar.com/insights/fpl-net-metering-explained-florida</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivsolar.com/insights/hurricane-proof-solar-panels-florida</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivsolar.com/insights/florida-solar-incentives-tax-credits-2026</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivsolar.com/insights/duke-energy-florida-solar-savings</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Puerto Rico Blog Posts -->
+  <url>
+    <loc>https://rivsolar.com/insights/solar-incentives-puerto-rico-2026</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivsolar.com/insights/luma-vs-solar-puerto-rico</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivsolar.com/insights/hurricane-proof-solar-puerto-rico</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivsolar.com/insights/puerto-rico-net-metering-2030</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivsolar.com/insights/solar-battery-essential-puerto-rico</loc>
     <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

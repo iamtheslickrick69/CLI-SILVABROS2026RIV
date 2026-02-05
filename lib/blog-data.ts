@@ -376,6 +376,118 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "February 4, 2026",
     image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80",
     author: authors.team
+  },
+  // ==================== FLORIDA ARTICLES ====================
+  {
+    id: 31,
+    title: "IS SOLAR WORTH IT IN FLORIDA 2026?",
+    slug: "is-solar-worth-it-florida-2026",
+    category: "FLORIDA",
+    readTime: "8 MIN",
+    date: "2026",
+    lastUpdated: "February 5, 2026",
+    image: "https://images.unsplash.com/photo-1605980776566-0486c3ac7617?w=1200&q=80",
+    author: authors.marcus
+  },
+  {
+    id: 32,
+    title: "FPL NET METERING EXPLAINED: MAXIMIZE YOUR SAVINGS",
+    slug: "fpl-net-metering-explained-florida",
+    category: "FPL",
+    readTime: "7 MIN",
+    date: "2026",
+    lastUpdated: "February 4, 2026",
+    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80",
+    author: authors.marcus
+  },
+  {
+    id: 33,
+    title: "HURRICANE-PROOF SOLAR PANELS: FLORIDA GUIDE",
+    slug: "hurricane-proof-solar-panels-florida",
+    category: "FLORIDA",
+    readTime: "6 MIN",
+    date: "2026",
+    lastUpdated: "February 3, 2026",
+    image: "https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=1200&q=80",
+    author: authors.david
+  },
+  {
+    id: 34,
+    title: "FLORIDA SOLAR INCENTIVES & TAX CREDITS 2026",
+    slug: "florida-solar-incentives-tax-credits-2026",
+    category: "FLORIDA",
+    readTime: "7 MIN",
+    date: "2026",
+    lastUpdated: "February 5, 2026",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80",
+    author: authors.sarah
+  },
+  {
+    id: 35,
+    title: "DUKE ENERGY FLORIDA: SOLAR SAVINGS GUIDE",
+    slug: "duke-energy-florida-solar-savings",
+    category: "DUKE ENERGY",
+    readTime: "6 MIN",
+    date: "2026",
+    lastUpdated: "February 2, 2026",
+    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80",
+    author: authors.marcus
+  },
+  // ==================== PUERTO RICO ARTICLES ====================
+  {
+    id: 36,
+    title: "SOLAR INCENTIVES PUERTO RICO 2026: COMPLETE GUIDE",
+    slug: "solar-incentives-puerto-rico-2026",
+    category: "PUERTO RICO",
+    readTime: "8 MIN",
+    date: "2026",
+    lastUpdated: "February 5, 2026",
+    image: "https://images.unsplash.com/photo-1580541631950-7282082b53ce?w=1200&q=80",
+    author: authors.sarah
+  },
+  {
+    id: 37,
+    title: "LUMA VS SOLAR: TAKE CONTROL OF YOUR POWER",
+    slug: "luma-vs-solar-puerto-rico",
+    category: "PUERTO RICO",
+    readTime: "7 MIN",
+    date: "2026",
+    lastUpdated: "February 4, 2026",
+    image: "https://images.unsplash.com/photo-1518173946687-a4c036bc4089?w=1200&q=80",
+    author: authors.marcus
+  },
+  {
+    id: 38,
+    title: "HURRICANE-PROOF SOLAR FOR PUERTO RICO",
+    slug: "hurricane-proof-solar-puerto-rico",
+    category: "PUERTO RICO",
+    readTime: "6 MIN",
+    date: "2026",
+    lastUpdated: "February 3, 2026",
+    image: "https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=1200&q=80",
+    author: authors.david
+  },
+  {
+    id: 39,
+    title: "PUERTO RICO NET METERING: EXTENDED TO 2030",
+    slug: "puerto-rico-net-metering-2030",
+    category: "PUERTO RICO",
+    readTime: "5 MIN",
+    date: "2026",
+    lastUpdated: "February 2, 2026",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
+    author: authors.marcus
+  },
+  {
+    id: 40,
+    title: "SOLAR + BATTERY: ESSENTIAL FOR PUERTO RICO",
+    slug: "solar-battery-essential-puerto-rico",
+    category: "PUERTO RICO",
+    readTime: "7 MIN",
+    date: "2026",
+    lastUpdated: "February 1, 2026",
+    image: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=1200&q=80",
+    author: authors.david
   }
 ];
 

@@ -104,6 +104,18 @@ const slugToFilename: Record<string, string> = {
   "what-happens-solar-panels-when-sell-house": "28-what-happens-solar-panels-when-sell-house.md",
   "does-solar-work-on-cloudy-days-california": "29-does-solar-work-on-cloudy-days-california.md",
   "how-choose-solar-company-california-red-flags": "30-how-choose-solar-company-california-red-flags.md",
+  // Florida articles
+  "is-solar-worth-it-florida-2026": "31-is-solar-worth-it-florida-2026.md",
+  "fpl-net-metering-explained-florida": "32-fpl-net-metering-explained-florida.md",
+  "hurricane-proof-solar-panels-florida": "33-hurricane-proof-solar-panels-florida.md",
+  "florida-solar-incentives-tax-credits-2026": "34-florida-solar-incentives-tax-credits-2026.md",
+  "duke-energy-florida-solar-savings": "35-duke-energy-florida-solar-savings.md",
+  // Puerto Rico articles
+  "solar-incentives-puerto-rico-2026": "36-solar-incentives-puerto-rico-2026.md",
+  "luma-vs-solar-puerto-rico": "37-luma-vs-solar-puerto-rico.md",
+  "hurricane-proof-solar-puerto-rico": "38-hurricane-proof-solar-puerto-rico.md",
+  "puerto-rico-net-metering-2030": "39-puerto-rico-net-metering-2030.md",
+  "solar-battery-essential-puerto-rico": "40-solar-battery-essential-puerto-rico.md",
 };
 
 function parseMarkdown(content: string): string {
