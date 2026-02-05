@@ -73,7 +73,7 @@ export function Hero() {
   }, [currentVideo]);
 
   return (
-    <section className="relative min-h-[85vh] md:h-screen w-full overflow-hidden">
+    <section className="relative min-h-screen w-full overflow-hidden">
       {/* Video Background with Crossfade */}
       <div className="absolute inset-0">
         {videos.map((src, index) => (
@@ -265,21 +265,21 @@ export function Hero() {
           )}
         </AnimatePresence>
 
-        {/* Hero Content - Positioned in upper portion */}
-        <div className="flex flex-1 flex-col items-center px-4 md:px-6 pt-24 sm:pt-28 md:pt-32 text-center">
-          {/* RIV Solar Logo */}
+        {/* Hero Content - Centered vertically on mobile, upper portion on desktop */}
+        <div className="flex flex-1 flex-col items-center justify-center md:justify-start px-4 md:px-6 pt-20 md:pt-32 pb-16 md:pb-0 text-center">
+          {/* RIV Solar Logo - Hidden on mobile, visible on tablet+ */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 md:mb-8"
+            className="hidden md:block mb-6 md:mb-8"
           >
             <Image
               src="/images/riv-solar-logo-transparent.jpg"
               alt="RIV Solar"
               width={600}
               height={260}
-              className="w-48 md:w-64 lg:w-[500px] h-auto brightness-125 drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]"
+              className="md:w-64 lg:w-[500px] h-auto brightness-125 drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]"
               priority
             />
           </motion.div>
@@ -299,66 +299,69 @@ export function Hero() {
             ))}
           </h1>
 
-          <p className="mt-6 lg:mt-10 max-w-xl lg:max-w-3xl text-balance text-center text-sm leading-relaxed text-white/80 md:text-base lg:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <p className="mt-3 md:mt-6 lg:mt-10 max-w-sm md:max-w-xl lg:max-w-3xl text-balance text-center text-xs md:text-base lg:text-xl leading-relaxed text-white/80 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             {t.hero.subheadline}
           </p>
 
-          {/* Stats Bar */}
-          <div className="mt-6 md:mt-8 lg:mt-12 flex items-center justify-center gap-4 md:gap-8 lg:gap-16 text-white/80">
-            <div className="flex flex-col items-center">
-              <span className="text-xl md:text-2xl lg:text-4xl font-medium text-white">$12M+</span>
-              <span className="text-[10px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.saved}</span>
+          {/* Stats + Trust Badges - Combined row on mobile, separate on desktop */}
+          <div className="mt-4 md:mt-8 lg:mt-12 flex flex-col items-center gap-3 md:gap-6">
+            {/* Stats Bar */}
+            <div className="flex items-center justify-center gap-3 md:gap-8 lg:gap-16 text-white/80">
+              <div className="flex flex-col items-center">
+                <span className="text-lg md:text-2xl lg:text-4xl font-medium text-white">$12M+</span>
+                <span className="text-[9px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.saved}</span>
+              </div>
+              <div className="h-5 md:h-8 lg:h-12 w-px bg-white/20" />
+              <div className="flex flex-col items-center">
+                <span className="text-lg md:text-2xl lg:text-4xl font-medium text-white">2,500+</span>
+                <span className="text-[9px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.families}</span>
+              </div>
+              <div className="h-5 md:h-8 lg:h-12 w-px bg-white/20" />
+              <div className="flex flex-col items-center">
+                <span className="text-lg md:text-2xl lg:text-4xl font-medium text-white">25 Yrs</span>
+                <span className="text-[9px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.warranty}</span>
+              </div>
             </div>
-            <div className="h-6 md:h-8 lg:h-12 w-px bg-white/20" />
-            <div className="flex flex-col items-center">
-              <span className="text-xl md:text-2xl lg:text-4xl font-medium text-white">2,500+</span>
-              <span className="text-[10px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.families}</span>
-            </div>
-            <div className="h-6 md:h-8 lg:h-12 w-px bg-white/20" />
-            <div className="flex flex-col items-center">
-              <span className="text-xl md:text-2xl lg:text-4xl font-medium text-white">25 Yrs</span>
-              <span className="text-[10px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.warranty}</span>
+
+            {/* Trust Badges - Inline with stats on mobile */}
+            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 lg:gap-6">
+              <div className="flex items-center gap-1 lg:gap-2 px-2 md:px-3 lg:px-5 py-0.5 md:py-1.5 lg:py-2.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                <Shield className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 text-green-400" />
+                <span className="text-[9px] md:text-xs lg:text-sm font-medium text-white">{t.hero.badges.bbbRating}</span>
+              </div>
+              <div className="flex items-center gap-1 lg:gap-2 px-2 md:px-3 lg:px-5 py-0.5 md:py-1.5 lg:py-2.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                <Star className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 text-yellow-400 fill-yellow-400" />
+                <span className="text-[9px] md:text-xs lg:text-sm font-medium text-white">{t.hero.badges.googleRating}</span>
+              </div>
             </div>
           </div>
 
-          {/* Trust Badges */}
-          <div className="mt-5 md:mt-8 lg:mt-10 flex flex-wrap items-center justify-center gap-2 md:gap-4 lg:gap-6">
-            <div className="flex items-center gap-1.5 lg:gap-2 px-2 md:px-3 lg:px-5 py-1 md:py-1.5 lg:py-2.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <Shield className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 text-green-400" />
-              <span className="text-[10px] md:text-xs lg:text-sm font-medium text-white">{t.hero.badges.bbbRating}</span>
-            </div>
-            <div className="flex items-center gap-1.5 lg:gap-2 px-2 md:px-3 lg:px-5 py-1 md:py-1.5 lg:py-2.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <Star className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 text-yellow-400 fill-yellow-400" />
-              <span className="text-[10px] md:text-xs lg:text-sm font-medium text-white">{t.hero.badges.googleRating}</span>
-            </div>
-          </div>
-
-          {/* CTAs - Two buttons side by side - larger touch targets on mobile */}
-          <div className="mt-6 lg:mt-10 flex flex-col items-center gap-3 lg:gap-4 sm:flex-row w-full sm:w-auto px-4 sm:px-0">
-            <Link href="#contact">
+          {/* CTAs - AI Calculator first (matches headline promise), Talk to Pro second */}
+          <div className="mt-4 md:mt-6 lg:mt-10 flex flex-col items-center gap-2 md:gap-3 lg:gap-4 sm:flex-row w-full sm:w-auto px-4 sm:px-0">
+            <Link href="/ai-tools" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="bg-white px-6 lg:px-10 py-4 lg:py-6 min-h-[52px] lg:min-h-[64px] w-full sm:w-auto text-slate-900 hover:bg-white/90 uppercase font-semibold tracking-wide text-base lg:text-lg"
-              >
-                {t.hero.cta.talkToPro}
-              </Button>
-            </Link>
-            <Link href="/ai-tools">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white/30 bg-transparent px-6 lg:px-10 py-4 lg:py-6 min-h-[52px] lg:min-h-[64px] w-full sm:w-auto text-white hover:bg-white/10 hover:text-white uppercase font-semibold tracking-wide text-base lg:text-lg"
+                className="bg-violet-600 hover:bg-violet-500 px-6 lg:px-10 py-4 lg:py-6 min-h-[52px] lg:min-h-[64px] w-full sm:w-auto text-white uppercase font-semibold tracking-wide text-base lg:text-lg shadow-lg shadow-violet-500/25"
               >
                 <Sparkles className="mr-2 h-5 w-5 lg:h-6 lg:w-6" />
                 {t.hero.cta.tryCalculator}
               </Button>
             </Link>
+            <Link href="#contact" className="w-full sm:w-auto">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white/30 bg-white/5 px-6 lg:px-10 py-4 lg:py-6 min-h-[52px] lg:min-h-[64px] w-full sm:w-auto text-white hover:bg-white/10 hover:text-white uppercase font-semibold tracking-wide text-base lg:text-lg"
+              >
+                {t.hero.cta.talkToPro}
+              </Button>
+            </Link>
           </div>
         </div>
 
-        {/* Scroll Indicator - At bottom */}
+        {/* Scroll Indicator - Hidden on mobile, visible on tablet+ */}
         <motion.div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2"
+          className="hidden md:block absolute bottom-6 left-1/2 -translate-x-1/2"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.5 }}
