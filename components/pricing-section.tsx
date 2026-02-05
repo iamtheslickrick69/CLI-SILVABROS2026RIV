@@ -52,7 +52,6 @@ const plans: FinancingOption[] = [
     priceMonthly: 300,
     priceYearly: 3600,
     type: "subscription",
-    popular: true,
   },
   {
     id: "ppa",
@@ -69,6 +68,7 @@ const plans: FinancingOption[] = [
     cta: "Learn More",
     priceMonthly: "Contact Us",
     type: "one-time",
+    popular: true,
   },
   {
     id: "battery",
@@ -174,25 +174,27 @@ export function PricingSection() {
                 transition: { duration: 0.3 }
               }}
               className={cn(
-                "relative flex flex-col gap-6 p-6 transition-all duration-300",
+                "relative flex flex-col gap-6 p-6 transition-all duration-300 rounded-xl",
                 option.popular
-                  ? "bg-white border-2 border-violet-500 shadow-xl"
+                  ? "bg-white border-2 border-violet-500 shadow-xl shadow-violet-500/20 ring-4 ring-violet-500/10 mt-4"
                   : "bg-white border border-zinc-200 shadow-lg"
               )}
             >
+              {/* Best Value Badge - Positioned at top */}
+              {option.popular && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-violet-600 px-4 py-1.5 rounded-full shadow-lg shadow-violet-500/30">
+                  <span className="text-xs font-bold text-white uppercase tracking-wider">
+                    Best Value
+                  </span>
+                </div>
+              )}
+
               {/* Card Head */}
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-normal text-zinc-900">
                     {option.name}
                   </span>
-                  {option.popular && (
-                    <div className="bg-violet-500 px-2.5 py-1">
-                      <span className="text-xs font-medium text-white">
-                        Popular
-                      </span>
-                    </div>
-                  )}
                 </div>
 
                 <div className="flex items-baseline gap-1">
