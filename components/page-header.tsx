@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight, ChevronDown, MapPin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -29,6 +29,8 @@ function PageHeader({
   secondaryCtaHref,
 }: PageHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [serviceAreasOpen, setServiceAreasOpen] = useState(false);
+  const [mobileServiceAreasOpen, setMobileServiceAreasOpen] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -109,6 +111,48 @@ function PageHeader({
                 <Link href="/insights" className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
                   Insights
                 </Link>
+                {/* Service Areas Dropdown */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => setServiceAreasOpen(true)}
+                  onMouseLeave={() => setServiceAreasOpen(false)}
+                >
+                  <button className="flex items-center gap-1 px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
+                    <MapPin className="w-4 h-4" />
+                    Service Areas
+                    <ChevronDown className={`w-3 h-3 transition-transform ${serviceAreasOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {serviceAreasOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      className="absolute top-full left-0 mt-1 w-48 bg-zinc-900/95 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden shadow-xl"
+                    >
+                      <Link
+                        href="/solar/california"
+                        className="flex items-center gap-3 px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                      >
+                        <span className="text-lg">🌴</span>
+                        California
+                      </Link>
+                      <Link
+                        href="/solar/florida"
+                        className="flex items-center gap-3 px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                      >
+                        <span className="text-lg">🌊</span>
+                        Florida
+                      </Link>
+                      <Link
+                        href="/solar/puerto-rico"
+                        className="flex items-center gap-3 px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                      >
+                        <span className="text-lg">🏝️</span>
+                        Puerto Rico
+                      </Link>
+                    </motion.div>
+                  )}
+                </div>
               </div>
 
               <div className="flex items-center gap-3">
@@ -159,6 +203,44 @@ function PageHeader({
                 <Link href="/insights" className="text-white/70 hover:text-white hover:bg-white/10 py-3 px-4 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
                   Insights
                 </Link>
+                {/* Mobile Service Areas */}
+                <div className="flex flex-col">
+                  <button
+                    onClick={() => setMobileServiceAreasOpen(!mobileServiceAreasOpen)}
+                    className="text-white/70 hover:text-white hover:bg-white/10 py-3 px-4 rounded-xl transition-all flex items-center justify-between"
+                  >
+                    <span className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4" />
+                      Service Areas
+                    </span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileServiceAreasOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {mobileServiceAreasOpen && (
+                    <div className="flex flex-col ml-4 border-l border-white/10">
+                      <Link
+                        href="/solar/california"
+                        className="text-white/60 hover:text-white py-2 px-4 text-sm flex items-center gap-2"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span>🌴</span> California
+                      </Link>
+                      <Link
+                        href="/solar/florida"
+                        className="text-white/60 hover:text-white py-2 px-4 text-sm flex items-center gap-2"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span>🌊</span> Florida
+                      </Link>
+                      <Link
+                        href="/solar/puerto-rico"
+                        className="text-white/60 hover:text-white py-2 px-4 text-sm flex items-center gap-2"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span>🏝️</span> Puerto Rico
+                      </Link>
+                    </div>
+                  )}
+                </div>
                 <div className="mt-2 pt-3 border-t border-white/10">
                   <Link
                     href="/ai-tools"
