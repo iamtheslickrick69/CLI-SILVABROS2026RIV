@@ -14,8 +14,8 @@ export const translations = {
 
     // Hero Section
     hero: {
-      headline: "Power your home with sunshine",
-      subheadline: "AI-powered tools that show your exact savings. No pushy sales tactics. Just honest solar solutions for families in California, Florida & Puerto Rico.",
+      headline: "Is Solar Actually Worth It?",
+      subheadline: "Find out in 60 seconds. Upload your bill → our AI calculates your exact savings, payback period, and ROI. No calls. No spam. Just answers.",
       stats: {
         saved: "Saved",
         families: "Families",
@@ -332,8 +332,8 @@ export const translations = {
 
     // Hero Section
     hero: {
-      headline: "Energiza tu hogar con el sol",
-      subheadline: "Herramientas con inteligencia artificial que muestran tus ahorros exactos. Sin tácticas de venta agresivas. Soluciones solares honestas para familias en California, Florida y Puerto Rico.",
+      headline: "¿Vale la Pena la Energía Solar?",
+      subheadline: "Descúbrelo en 60 segundos. Sube tu factura → nuestra IA calcula tus ahorros exactos, período de recuperación y ROI. Sin llamadas. Sin spam. Solo respuestas.",
       stats: {
         saved: "Ahorrados",
         families: "Familias",

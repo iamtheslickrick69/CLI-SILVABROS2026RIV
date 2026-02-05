@@ -272,14 +272,14 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 md:mb-8 bg-white/95 backdrop-blur-sm rounded-2xl border border-white/20 p-4 md:p-6 shadow-lg"
+            className="mb-6 md:mb-8"
           >
             <Image
-              src="/images/riv-solar-logo-full.png"
+              src="/images/riv-solar-logo-transparent.jpg"
               alt="RIV Solar"
-              width={280}
-              height={120}
-              className="w-40 md:w-56 lg:w-64 h-auto"
+              width={320}
+              height={140}
+              className="w-48 md:w-64 lg:w-80 h-auto"
               priority
             />
           </motion.div>
@@ -339,20 +339,24 @@ export function Hero() {
 
           {/* CTAs - Two buttons side by side - larger touch targets on mobile */}
           <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row w-full sm:w-auto px-4 sm:px-0">
-            <Button
-              size="lg"
-              className="bg-white px-6 py-4 min-h-[52px] w-full sm:w-auto text-slate-900 hover:bg-white/90 uppercase font-semibold tracking-wide text-base"
-            >
-              {t.hero.cta.talkToPro}
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-white/30 bg-transparent px-6 py-4 min-h-[52px] w-full sm:w-auto text-white hover:bg-white/10 hover:text-white uppercase font-semibold tracking-wide text-base"
-            >
-              <Sparkles className="mr-2 h-5 w-5" />
-              {t.hero.cta.tryCalculator}
-            </Button>
+            <Link href="#contact">
+              <Button
+                size="lg"
+                className="bg-white px-6 py-4 min-h-[52px] w-full sm:w-auto text-slate-900 hover:bg-white/90 uppercase font-semibold tracking-wide text-base"
+              >
+                {t.hero.cta.talkToPro}
+              </Button>
+            </Link>
+            <Link href="/ai-tools">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white/30 bg-transparent px-6 py-4 min-h-[52px] w-full sm:w-auto text-white hover:bg-white/10 hover:text-white uppercase font-semibold tracking-wide text-base"
+              >
+                <Sparkles className="mr-2 h-5 w-5" />
+                {t.hero.cta.tryCalculator}
+              </Button>
+            </Link>
           </div>
         </div>
 
