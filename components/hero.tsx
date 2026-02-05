@@ -277,14 +277,14 @@ export function Hero() {
             <Image
               src="/images/riv-solar-logo-transparent.jpg"
               alt="RIV Solar"
-              width={320}
-              height={140}
-              className="w-48 md:w-64 lg:w-80 h-auto brightness-125 drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]"
+              width={600}
+              height={260}
+              className="w-48 md:w-64 lg:w-[500px] h-auto brightness-125 drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]"
               priority
             />
           </motion.div>
 
-          <h1 className="max-w-3xl text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-barlow-condensed)] uppercase">
+          <h1 className="max-w-5xl text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[9rem] font-[family-name:var(--font-barlow-condensed)] uppercase">
             {t.hero.headline.split(" ").map((word, i) => (
               <motion.span
                 key={i}
@@ -299,46 +299,46 @@ export function Hero() {
             ))}
           </h1>
 
-          <p className="mt-6 max-w-xl text-balance text-center text-sm leading-relaxed text-white/80 md:text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <p className="mt-6 lg:mt-10 max-w-xl lg:max-w-3xl text-balance text-center text-sm leading-relaxed text-white/80 md:text-base lg:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             {t.hero.subheadline}
           </p>
 
           {/* Stats Bar */}
-          <div className="mt-6 md:mt-8 flex items-center justify-center gap-4 md:gap-8 text-white/80">
+          <div className="mt-6 md:mt-8 lg:mt-12 flex items-center justify-center gap-4 md:gap-8 lg:gap-16 text-white/80">
             <div className="flex flex-col items-center">
-              <span className="text-xl md:text-2xl font-medium text-white">$12M+</span>
-              <span className="text-[10px] md:text-xs text-white/60">{t.hero.stats.saved}</span>
+              <span className="text-xl md:text-2xl lg:text-4xl font-medium text-white">$12M+</span>
+              <span className="text-[10px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.saved}</span>
             </div>
-            <div className="h-6 md:h-8 w-px bg-white/20" />
+            <div className="h-6 md:h-8 lg:h-12 w-px bg-white/20" />
             <div className="flex flex-col items-center">
-              <span className="text-xl md:text-2xl font-medium text-white">2,500+</span>
-              <span className="text-[10px] md:text-xs text-white/60">{t.hero.stats.families}</span>
+              <span className="text-xl md:text-2xl lg:text-4xl font-medium text-white">2,500+</span>
+              <span className="text-[10px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.families}</span>
             </div>
-            <div className="h-6 md:h-8 w-px bg-white/20" />
+            <div className="h-6 md:h-8 lg:h-12 w-px bg-white/20" />
             <div className="flex flex-col items-center">
-              <span className="text-xl md:text-2xl font-medium text-white">25 Yrs</span>
-              <span className="text-[10px] md:text-xs text-white/60">{t.hero.stats.warranty}</span>
+              <span className="text-xl md:text-2xl lg:text-4xl font-medium text-white">25 Yrs</span>
+              <span className="text-[10px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.warranty}</span>
             </div>
           </div>
 
           {/* Trust Badges */}
-          <div className="mt-5 md:mt-8 flex flex-wrap items-center justify-center gap-2 md:gap-4">
-            <div className="flex items-center gap-1.5 px-2 md:px-3 py-1 md:py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <Shield className="w-3 h-3 md:w-4 md:h-4 text-green-400" />
-              <span className="text-[10px] md:text-xs font-medium text-white">{t.hero.badges.bbbRating}</span>
+          <div className="mt-5 md:mt-8 lg:mt-10 flex flex-wrap items-center justify-center gap-2 md:gap-4 lg:gap-6">
+            <div className="flex items-center gap-1.5 lg:gap-2 px-2 md:px-3 lg:px-5 py-1 md:py-1.5 lg:py-2.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+              <Shield className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 text-green-400" />
+              <span className="text-[10px] md:text-xs lg:text-sm font-medium text-white">{t.hero.badges.bbbRating}</span>
             </div>
-            <div className="flex items-center gap-1.5 px-2 md:px-3 py-1 md:py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <Star className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 fill-yellow-400" />
-              <span className="text-[10px] md:text-xs font-medium text-white">{t.hero.badges.googleRating}</span>
+            <div className="flex items-center gap-1.5 lg:gap-2 px-2 md:px-3 lg:px-5 py-1 md:py-1.5 lg:py-2.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+              <Star className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 text-yellow-400 fill-yellow-400" />
+              <span className="text-[10px] md:text-xs lg:text-sm font-medium text-white">{t.hero.badges.googleRating}</span>
             </div>
           </div>
 
           {/* CTAs - Two buttons side by side - larger touch targets on mobile */}
-          <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row w-full sm:w-auto px-4 sm:px-0">
+          <div className="mt-6 lg:mt-10 flex flex-col items-center gap-3 lg:gap-4 sm:flex-row w-full sm:w-auto px-4 sm:px-0">
             <Link href="#contact">
               <Button
                 size="lg"
-                className="bg-white px-6 py-4 min-h-[52px] w-full sm:w-auto text-slate-900 hover:bg-white/90 uppercase font-semibold tracking-wide text-base"
+                className="bg-white px-6 lg:px-10 py-4 lg:py-6 min-h-[52px] lg:min-h-[64px] w-full sm:w-auto text-slate-900 hover:bg-white/90 uppercase font-semibold tracking-wide text-base lg:text-lg"
               >
                 {t.hero.cta.talkToPro}
               </Button>
@@ -347,9 +347,9 @@ export function Hero() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white/30 bg-transparent px-6 py-4 min-h-[52px] w-full sm:w-auto text-white hover:bg-white/10 hover:text-white uppercase font-semibold tracking-wide text-base"
+                className="border-white/30 bg-transparent px-6 lg:px-10 py-4 lg:py-6 min-h-[52px] lg:min-h-[64px] w-full sm:w-auto text-white hover:bg-white/10 hover:text-white uppercase font-semibold tracking-wide text-base lg:text-lg"
               >
-                <Sparkles className="mr-2 h-5 w-5" />
+                <Sparkles className="mr-2 h-5 w-5 lg:h-6 lg:w-6" />
                 {t.hero.cta.tryCalculator}
               </Button>
             </Link>
