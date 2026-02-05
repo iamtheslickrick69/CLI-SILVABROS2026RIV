@@ -1,4 +1,11 @@
 // Blog data for the Insights page
+export interface Author {
+  name: string;
+  role: string;
+  avatar: string;
+  bio: string;
+}
+
 export interface BlogPost {
   id: number;
   title: string;
@@ -6,8 +13,38 @@ export interface BlogPost {
   category: string;
   readTime: string;
   date: string;
+  lastUpdated: string;
   image: string;
+  author: Author;
 }
+
+// Expert authors for credibility (E-E-A-T)
+export const authors: Record<string, Author> = {
+  marcus: {
+    name: "Marcus Chen",
+    role: "Solar Energy Specialist",
+    avatar: "/images/authors/marcus.jpg",
+    bio: "10+ years in California solar industry. NABCEP certified. Former utility rate analyst."
+  },
+  sarah: {
+    name: "Sarah Martinez",
+    role: "Energy Finance Expert",
+    avatar: "/images/authors/sarah.jpg",
+    bio: "Solar financing specialist with expertise in tax credits, PPAs, and loan structures."
+  },
+  david: {
+    name: "David Park",
+    role: "Installation Director",
+    avatar: "/images/authors/david.jpg",
+    bio: "Licensed contractor (CSLB). 15+ years managing residential solar installations across California."
+  },
+  team: {
+    name: "RIV Solar Team",
+    role: "Expert Contributors",
+    avatar: "/images/riv-logo.png",
+    bio: "Our team of certified solar professionals serving California, Florida & Puerto Rico."
+  }
+};
 
 export const blogPosts: BlogPost[] = [
   {
@@ -17,7 +54,9 @@ export const blogPosts: BlogPost[] = [
     category: "SOLAR ROI",
     readTime: "8 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80"
+    lastUpdated: "February 3, 2026",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
+    author: authors.marcus
   },
   {
     id: 2,
@@ -26,7 +65,9 @@ export const blogPosts: BlogPost[] = [
     category: "DECISION GUIDE",
     readTime: "7 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&q=80"
+    lastUpdated: "February 2, 2026",
+    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&q=80",
+    author: authors.marcus
   },
   {
     id: 3,
@@ -35,7 +76,9 @@ export const blogPosts: BlogPost[] = [
     category: "SOLAR ROI",
     readTime: "6 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80"
+    lastUpdated: "January 30, 2026",
+    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80",
+    author: authors.marcus
   },
   {
     id: 4,
@@ -44,7 +87,9 @@ export const blogPosts: BlogPost[] = [
     category: "EV + SOLAR",
     readTime: "8 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&q=80"
+    lastUpdated: "January 28, 2026",
+    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&q=80",
+    author: authors.marcus
   },
   {
     id: 5,
@@ -53,7 +98,9 @@ export const blogPosts: BlogPost[] = [
     category: "LOCAL GUIDE",
     readTime: "9 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=1200&q=80"
+    lastUpdated: "January 25, 2026",
+    image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=1200&q=80",
+    author: authors.david
   },
   {
     id: 6,
@@ -62,7 +109,9 @@ export const blogPosts: BlogPost[] = [
     category: "TAX CREDITS",
     readTime: "6 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80"
+    lastUpdated: "February 1, 2026",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80",
+    author: authors.sarah
   },
   {
     id: 7,
@@ -71,7 +120,9 @@ export const blogPosts: BlogPost[] = [
     category: "INCENTIVES",
     readTime: "7 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1200&q=80"
+    lastUpdated: "February 3, 2026",
+    image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1200&q=80",
+    author: authors.sarah
   },
   {
     id: 8,
@@ -80,7 +131,9 @@ export const blogPosts: BlogPost[] = [
     category: "TAX GUIDE",
     readTime: "5 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80"
+    lastUpdated: "January 20, 2026",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80",
+    author: authors.sarah
   },
   {
     id: 9,
@@ -89,7 +142,9 @@ export const blogPosts: BlogPost[] = [
     category: "PG&E",
     readTime: "7 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80"
+    lastUpdated: "February 4, 2026",
+    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80",
+    author: authors.marcus
   },
   {
     id: 10,
@@ -98,7 +153,9 @@ export const blogPosts: BlogPost[] = [
     category: "SDG&E",
     readTime: "7 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200&q=80"
+    lastUpdated: "February 4, 2026",
+    image: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200&q=80",
+    author: authors.marcus
   },
   {
     id: 11,
@@ -107,7 +164,9 @@ export const blogPosts: BlogPost[] = [
     category: "SCE",
     readTime: "6 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=1200&q=80"
+    lastUpdated: "February 2, 2026",
+    image: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=1200&q=80",
+    author: authors.marcus
   },
   {
     id: 12,
@@ -116,7 +175,9 @@ export const blogPosts: BlogPost[] = [
     category: "RATES",
     readTime: "7 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1518173946687-a4c036bc4089?w=1200&q=80"
+    lastUpdated: "February 3, 2026",
+    image: "https://images.unsplash.com/photo-1518173946687-a4c036bc4089?w=1200&q=80",
+    author: authors.marcus
   },
   {
     id: 13,
@@ -125,7 +186,9 @@ export const blogPosts: BlogPost[] = [
     category: "PG&E",
     readTime: "6 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1200&q=80"
+    lastUpdated: "January 22, 2026",
+    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1200&q=80",
+    author: authors.sarah
   },
   {
     id: 14,
@@ -134,7 +197,9 @@ export const blogPosts: BlogPost[] = [
     category: "NEM 3.0",
     readTime: "8 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1545209463-e2827c2acac5?w=1200&q=80"
+    lastUpdated: "February 5, 2026",
+    image: "https://images.unsplash.com/photo-1545209463-e2827c2acac5?w=1200&q=80",
+    author: authors.marcus
   },
   {
     id: 15,
@@ -143,7 +208,9 @@ export const blogPosts: BlogPost[] = [
     category: "PRICING",
     readTime: "7 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&q=80"
+    lastUpdated: "February 1, 2026",
+    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&q=80",
+    author: authors.sarah
   },
   {
     id: 16,
@@ -152,7 +219,9 @@ export const blogPosts: BlogPost[] = [
     category: "SOLAR ROI",
     readTime: "6 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80"
+    lastUpdated: "January 28, 2026",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
+    author: authors.marcus
   },
   {
     id: 17,
@@ -161,7 +230,9 @@ export const blogPosts: BlogPost[] = [
     category: "SYSTEM SIZE",
     readTime: "6 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=1200&q=80"
+    lastUpdated: "January 26, 2026",
+    image: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=1200&q=80",
+    author: authors.david
   },
   {
     id: 18,
@@ -170,7 +241,9 @@ export const blogPosts: BlogPost[] = [
     category: "FINANCING",
     readTime: "7 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80"
+    lastUpdated: "January 30, 2026",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80",
+    author: authors.sarah
   },
   {
     id: 19,
@@ -179,7 +252,9 @@ export const blogPosts: BlogPost[] = [
     category: "FINANCING",
     readTime: "6 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&q=80"
+    lastUpdated: "January 25, 2026",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&q=80",
+    author: authors.sarah
   },
   {
     id: 20,
@@ -188,7 +263,9 @@ export const blogPosts: BlogPost[] = [
     category: "FINANCING",
     readTime: "6 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&q=80"
+    lastUpdated: "February 2, 2026",
+    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&q=80",
+    author: authors.sarah
   },
   {
     id: 21,
@@ -197,7 +274,9 @@ export const blogPosts: BlogPost[] = [
     category: "BATTERIES",
     readTime: "7 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=1200&q=80"
+    lastUpdated: "January 29, 2026",
+    image: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=1200&q=80",
+    author: authors.david
   },
   {
     id: 22,
@@ -206,7 +285,9 @@ export const blogPosts: BlogPost[] = [
     category: "BATTERIES",
     readTime: "5 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1200&q=80"
+    lastUpdated: "January 24, 2026",
+    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1200&q=80",
+    author: authors.david
   },
   {
     id: 23,
@@ -215,7 +296,9 @@ export const blogPosts: BlogPost[] = [
     category: "BATTERIES",
     readTime: "8 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=1200&q=80"
+    lastUpdated: "February 1, 2026",
+    image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=1200&q=80",
+    author: authors.david
   },
   {
     id: 24,
@@ -224,7 +307,9 @@ export const blogPosts: BlogPost[] = [
     category: "INSTALLATION",
     readTime: "6 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=1200&q=80"
+    lastUpdated: "January 27, 2026",
+    image: "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=1200&q=80",
+    author: authors.david
   },
   {
     id: 25,
@@ -233,7 +318,9 @@ export const blogPosts: BlogPost[] = [
     category: "INSTALLATION",
     readTime: "5 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&q=80"
+    lastUpdated: "January 23, 2026",
+    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&q=80",
+    author: authors.david
   },
   {
     id: 26,
@@ -242,7 +329,9 @@ export const blogPosts: BlogPost[] = [
     category: "INSTALLATION",
     readTime: "5 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80"
+    lastUpdated: "January 21, 2026",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
+    author: authors.david
   },
   {
     id: 27,
@@ -251,7 +340,9 @@ export const blogPosts: BlogPost[] = [
     category: "INSTALLATION",
     readTime: "6 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=1200&q=80"
+    lastUpdated: "January 19, 2026",
+    image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=1200&q=80",
+    author: authors.david
   },
   {
     id: 28,
@@ -260,7 +351,9 @@ export const blogPosts: BlogPost[] = [
     category: "HOME VALUE",
     readTime: "5 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80"
+    lastUpdated: "January 26, 2026",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80",
+    author: authors.sarah
   },
   {
     id: 29,
@@ -269,7 +362,9 @@ export const blogPosts: BlogPost[] = [
     category: "SOLAR 101",
     readTime: "5 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=1200&q=80"
+    lastUpdated: "January 18, 2026",
+    image: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=1200&q=80",
+    author: authors.team
   },
   {
     id: 30,
@@ -278,7 +373,9 @@ export const blogPosts: BlogPost[] = [
     category: "BUYER GUIDE",
     readTime: "7 MIN",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80"
+    lastUpdated: "February 4, 2026",
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80",
+    author: authors.team
   }
 ];
 

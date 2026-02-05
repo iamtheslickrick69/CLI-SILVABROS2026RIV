@@ -4,12 +4,12 @@ import InsightsClient from "./insights-client";
 
 // AEO-optimized metadata
 export const metadata: Metadata = {
-  title: "Solar Insights & Guides | California Solar Education | RIV Solar",
-  description: "Expert guides on California solar panels, NEM 3.0, battery storage, tax credits, financing options, and real savings. Learn everything about going solar in 2026.",
-  keywords: ["California solar", "NEM 3.0", "solar tax credit", "solar battery storage", "PG&E rates", "SDG&E rates", "SCE rates", "solar financing", "solar installation"],
+  title: "Solar Insights & Guides | Expert Solar Education | RIV Solar",
+  description: "Expert guides on solar panels, NEM 3.0, battery storage, tax credits, financing options, and real savings. Serving California, Florida & Puerto Rico. Learn everything about going solar in 2026.",
+  keywords: ["California solar", "Florida solar", "Puerto Rico solar", "NEM 3.0", "solar tax credit", "solar battery storage", "PG&E rates", "SDG&E rates", "SCE rates", "solar financing", "solar installation"],
   openGraph: {
     title: "Solar Insights & Guides | RIV Solar",
-    description: "30+ expert guides on California solar. Learn about NEM 3.0, tax credits, battery storage, and how much you can save.",
+    description: "30+ expert guides on solar energy. Learn about NEM 3.0, tax credits, battery storage, and how much you can save in California, Florida & Puerto Rico.",
     type: "website",
     url: "https://rivsolar.com/insights",
     images: [{ url: "https://rivsolar.com/images/insights-og.jpg", width: 1200, height: 630, alt: "RIV Solar Insights" }],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Solar Insights & Guides | RIV Solar",
-    description: "30+ expert guides on California solar. Learn about NEM 3.0, tax credits, battery storage, and savings.",
+    description: "30+ expert guides on solar energy. Learn about NEM 3.0, tax credits, battery storage, and savings.",
   },
   alternates: {
     canonical: "https://rivsolar.com/insights",
@@ -67,11 +67,12 @@ function generateSchema() {
     "name": "RIV Solar",
     "url": "https://rivsolar.com",
     "logo": "https://rivsolar.com/images/riv-logo.png",
-    "description": "California's trusted residential solar company. AI-powered tools, transparent pricing, 25-year warranty.",
-    "areaServed": {
-      "@type": "State",
-      "name": "California"
-    },
+    "description": "Trusted residential solar company serving California, Florida & Puerto Rico. AI-powered tools, transparent pricing, 25-year warranty.",
+    "areaServed": [
+      { "@type": "State", "name": "California" },
+      { "@type": "State", "name": "Florida" },
+      { "@type": "AdministrativeArea", "name": "Puerto Rico" }
+    ],
     "sameAs": [
       "https://facebook.com/rivsolar",
       "https://instagram.com/rivsolar",

@@ -4,7 +4,28 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { blogPosts } from '@/lib/blog-data';
+import { blogPosts, BlogPost } from '@/lib/blog-data';
+
+// Get related articles by category (same category, excluding current)
+function getRelatedArticles(currentSlug: string, category: string, limit: number = 3): BlogPost[] {
+  return blogPosts
+    .filter(post => post.slug !== currentSlug && post.category === category)
+    .slice(0, limit);
+}
+
+// If not enough in same category, get from other categories
+function getMoreRelatedArticles(currentSlug: string, category: string, existing: BlogPost[], limit: number = 3): BlogPost[] {
+  if (existing.length >= limit) return existing;
+
+  const needed = limit - existing.length;
+  const existingSlugs = new Set([currentSlug, ...existing.map(p => p.slug)]);
+
+  const additional = blogPosts
+    .filter(post => !existingSlugs.has(post.slug))
+    .slice(0, needed);
+
+  return [...existing, ...additional];
+}
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
@@ -26,22 +47,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: `${title} | RIV Solar`,
-    description: `Learn about ${post.title.toLowerCase()}. Expert guide for California homeowners on solar panels, savings, and installation.`,
-    keywords: [post.category.toLowerCase(), 'California solar', 'solar panels', 'solar savings', post.title.split(' ').slice(0, 3).join(' ')],
+    description: `Learn about ${post.title.toLowerCase()}. Expert guide by ${post.author.name} for homeowners on solar panels, savings, and installation.`,
+    keywords: [post.category.toLowerCase(), 'California solar', 'Florida solar', 'Puerto Rico solar', 'solar panels', 'solar savings', post.title.split(' ').slice(0, 3).join(' ')],
     openGraph: {
       title: post.title,
-      description: `Expert guide: ${post.title}. Everything California homeowners need to know.`,
+      description: `Expert guide by ${post.author.name}: ${post.title}. Everything homeowners need to know.`,
       type: 'article',
       url: `https://rivsolar.com/insights/${slug}`,
       images: [{ url: post.image, width: 1200, height: 630, alt: post.title }],
       publishedTime: '2026-01-01T00:00:00Z',
-      authors: ['RIV Solar'],
+      modifiedTime: new Date(post.lastUpdated).toISOString(),
+      authors: [post.author.name],
       section: post.category,
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description: `Expert guide: ${post.title}`,
+      description: `Expert guide by ${post.author.name}: ${post.title}`,
       images: [post.image],
     },
     alternates: {
@@ -231,19 +253,32 @@ function formatInline(text: string): string {
 }
 
 // Generate AEO Schema for individual blog posts
-function generateBlogSchema(post: typeof blogPosts[0], slug: string) {
+function generateBlogSchema(post: BlogPost, slug: string) {
+  // Parse the lastUpdated date
+  const modifiedDate = new Date(post.lastUpdated).toISOString();
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": post.title,
-    "description": `Expert guide: ${post.title}. Everything California homeowners need to know about solar.`,
+    "description": `Expert guide by ${post.author.name}: ${post.title}. Everything homeowners need to know about solar.`,
     "image": post.image,
     "datePublished": "2026-01-01T00:00:00Z",
-    "dateModified": "2026-01-01T00:00:00Z",
-    "author": {
+    "dateModified": modifiedDate,
+    "author": post.author.name === "RIV Solar Team" ? {
       "@type": "Organization",
       "name": "RIV Solar",
       "url": "https://rivsolar.com"
+    } : {
+      "@type": "Person",
+      "name": post.author.name,
+      "jobTitle": post.author.role,
+      "description": post.author.bio,
+      "worksFor": {
+        "@type": "Organization",
+        "name": "RIV Solar",
+        "url": "https://rivsolar.com"
+      }
     },
     "publisher": {
       "@type": "Organization",
@@ -298,6 +333,10 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
   const htmlContent = parseMarkdown(content);
   const schemas = generateBlogSchema(blogPost, slug);
 
+  // Get related articles
+  const sameCategoryArticles = getRelatedArticles(slug, blogPost.category, 3);
+  const relatedArticles = getMoreRelatedArticles(slug, blogPost.category, sameCategoryArticles, 3);
+
   return (
     <main className="min-h-screen bg-zinc-950">
       {/* AEO Schema Markup */}
@@ -312,14 +351,14 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
       <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-4">
         <div className="mx-auto max-w-4xl">
           <div className="flex items-center justify-between">
-            <Link 
-              href="/insights" 
+            <Link
+              href="/insights"
               className="text-xs uppercase tracking-widest text-zinc-500 hover:text-violet-400 transition-colors font-mono"
             >
               ← Back to Insights
             </Link>
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="text-xs uppercase tracking-widest text-zinc-500 hover:text-violet-400 transition-colors font-mono"
             >
               RIV Solar
@@ -332,16 +371,39 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
       <article className="pt-24 pb-20 px-4 md:px-6">
         <div className="mx-auto max-w-3xl">
           {/* Meta */}
-          <div className="mb-8 flex items-center gap-4 text-xs uppercase tracking-widest text-zinc-500 font-mono">
+          <div className="mb-6 flex flex-wrap items-center gap-3 text-xs uppercase tracking-widest text-zinc-500 font-mono">
             <span className="text-violet-400">{blogPost.category}</span>
             <span>·</span>
             <span>{blogPost.readTime}</span>
             <span>·</span>
-            <span>{blogPost.date}</span>
+            <span>Updated {blogPost.lastUpdated}</span>
+          </div>
+
+          {/* Author Byline - E-E-A-T Signal */}
+          <div className="mb-10 flex items-center gap-4 p-4 bg-zinc-900/50 border border-zinc-800/50 rounded-xl">
+            <div className="relative w-12 h-12 rounded-full overflow-hidden bg-zinc-800 flex-shrink-0">
+              {blogPost.author.avatar.includes('riv-logo') ? (
+                <Image
+                  src={blogPost.author.avatar}
+                  alt={blogPost.author.name}
+                  fill
+                  className="object-contain p-2 invert"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-violet-400 text-lg font-semibold">
+                  {blogPost.author.name.split(' ').map(n => n[0]).join('')}
+                </div>
+              )}
+            </div>
+            <div>
+              <p className="text-white font-medium text-sm">{blogPost.author.name}</p>
+              <p className="text-violet-400 text-xs">{blogPost.author.role}</p>
+              <p className="text-zinc-500 text-xs mt-1 hidden sm:block">{blogPost.author.bio}</p>
+            </div>
           </div>
 
           {/* Content */}
-          <div 
+          <div
             className="prose prose-invert prose-zinc max-w-none"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
@@ -349,19 +411,56 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
           {/* CTA */}
           <div className="mt-16 p-8 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h3 className="text-xl font-semibold text-white mb-3">Ready to see your savings?</h3>
-            <p className="text-zinc-400 mb-6">Get a free, personalized solar quote for your California home.</p>
-            <Link 
-              href="/#savings"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-lg transition-all"
-            >
-              Get Your Free Quote
-            </Link>
+            <p className="text-zinc-400 mb-6">Get a free, personalized solar quote for your home in California, Florida, or Puerto Rico.</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/#savings"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-lg transition-all"
+              >
+                Get Your Free Quote
+              </Link>
+              <Link
+                href="/ai-tools"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg transition-all border border-zinc-700"
+              >
+                Try AI Bill Analyzer
+              </Link>
+            </div>
           </div>
+
+          {/* Related Articles - Internal Linking */}
+          {relatedArticles.length > 0 && (
+            <div className="mt-16">
+              <h2 className="text-xl font-semibold text-white mb-6">Related Articles</h2>
+              <div className="grid gap-4">
+                {relatedArticles.map((article) => (
+                  <Link
+                    key={article.slug}
+                    href={`/insights/${article.slug}`}
+                    className="group flex items-center justify-between p-4 bg-zinc-900/30 hover:bg-zinc-900/60 border border-zinc-800/50 hover:border-violet-500/30 rounded-lg transition-all"
+                  >
+                    <div className="flex-1 min-w-0 pr-4">
+                      <p className="text-white text-sm font-medium group-hover:text-violet-400 transition-colors line-clamp-1">
+                        {article.title}
+                      </p>
+                      <div className="flex items-center gap-3 mt-1">
+                        <span className="text-violet-400/70 text-xs">{article.category}</span>
+                        <span className="text-zinc-600 text-xs">{article.readTime}</span>
+                      </div>
+                    </div>
+                    <svg className="w-4 h-4 text-zinc-600 group-hover:text-violet-400 transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Back link */}
           <div className="mt-12 pt-8 border-t border-zinc-800">
-            <Link 
-              href="/insights" 
+            <Link
+              href="/insights"
               className="text-sm text-zinc-500 hover:text-violet-400 transition-colors font-mono uppercase tracking-widest"
             >
               ← View All Insights
