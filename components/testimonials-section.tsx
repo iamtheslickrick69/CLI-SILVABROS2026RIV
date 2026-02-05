@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { staggerContainer, fadeInUp } from "@/lib/animations";
 import { useLanguage } from "@/lib/i18n";
+import { ParallaxBackground } from "@/components/parallax-background";
 
 const testimonialMeta = [
   { avatar: "/images/customer-4.png", before: "$340/mo", after: "$11/mo" },
@@ -43,15 +44,13 @@ export function TestimonialsSection() {
 
   return (
     <section id="testimonials" className="relative w-full bg-zinc-900 py-24 md:py-32 border-b border-zinc-700/30 overflow-hidden">
-      {/* Background Image - Black & White */}
-      <div
-        className="absolute inset-0 bg-cover bg-center grayscale"
-        style={{
-          backgroundImage: "url('https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/LA.jpg')",
-        }}
+      {/* Parallax Background - Black & White */}
+      <ParallaxBackground
+        imageUrl="https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/LA.jpg"
+        speed={0.25}
+        className="grayscale"
+        overlayClassName="bg-zinc-900/85"
       />
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-zinc-900/85" />
       {/* Vignette effect - top and bottom */}
       <div 
         className="absolute inset-0 pointer-events-none"

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { X, Check, TrendingUp, Lock, Zap, Settings, DollarSign, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { fadeInUp, scaleIn, viewportSettings } from "@/lib/animations";
+import { ParallaxBackground } from "@/components/parallax-background";
 
 export function ComparisonSection() {
   const comparisons = [
@@ -16,15 +17,13 @@ export function ComparisonSection() {
 
   return (
     <section className="relative w-full bg-zinc-900 py-24 border-b border-zinc-700/30 overflow-hidden">
-      {/* Background Image - Bright house */}
-      <div
-        className="absolute inset-0 bg-cover bg-center brightness-110 saturate-110"
-        style={{
-          backgroundImage: "url('https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/house1.jpg')",
-        }}
+      {/* Parallax Background - Bright house */}
+      <ParallaxBackground
+        imageUrl="https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/house1.jpg"
+        speed={0.25}
+        className="brightness-110 saturate-110"
+        overlayClassName="bg-zinc-900/70"
       />
-      {/* Lighter overlay to keep brightness but ensure readability */}
-      <div className="absolute inset-0 bg-zinc-900/70" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         {/* Header */}

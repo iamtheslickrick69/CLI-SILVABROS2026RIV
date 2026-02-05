@@ -1,19 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ParallaxBackground } from "@/components/parallax-background";
 
 export function MissionSection() {
   return (
     <section className="relative w-full bg-zinc-900 py-24 md:py-32 border-b border-zinc-700/30 overflow-hidden">
-      {/* Background Image - Black & White with Vignette */}
-      <div
-        className="absolute inset-0 bg-cover bg-center grayscale"
-        style={{
-          backgroundImage: "url('https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/IMG_7383.JPG')",
-        }}
+      {/* Parallax Background - Black & White */}
+      <ParallaxBackground
+        imageUrl="https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/IMG_7383.JPG"
+        speed={0.2}
+        className="grayscale"
+        overlayClassName="bg-zinc-900/80"
       />
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-zinc-900/80" />
       {/* Vignette effect */}
       <div 
         className="absolute inset-0 pointer-events-none"

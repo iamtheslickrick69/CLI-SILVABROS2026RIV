@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { staggerContainer, fadeInUp, cardHover, viewportSettings } from "@/lib/animations";
+import { ParallaxBackground } from "@/components/parallax-background";
 
 interface FinancingOption {
   id: string;
@@ -96,12 +97,10 @@ export function PricingSection() {
       id="financing"
       className="relative w-full bg-zinc-900 py-24 md:py-32 border-b border-zinc-700/30 overflow-hidden"
     >
-      {/* Background Image - Full Brightness */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/coolaihomesavings.jpg')",
-        }}
+      {/* Parallax Background */}
+      <ParallaxBackground
+        imageUrl="https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/coolaihomesavings.jpg"
+        speed={0.2}
       />
       
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12 lg:px-16">

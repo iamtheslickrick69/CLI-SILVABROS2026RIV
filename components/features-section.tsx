@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { fadeInUp, staggerContainer, staggerItem, viewportSettings } from "@/lib/animations";
 import { useLanguage } from "@/lib/i18n";
 import Link from "next/link";
+import { ParallaxBackground } from "@/components/parallax-background";
 
 const featureIcons = [
   <Sparkles key="1" className="w-5 h-5 text-white" />,
@@ -69,13 +70,12 @@ export function FeaturesSection({
         className
       )}
     >
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/IMG_7384.JPG')" }}
+      {/* Parallax Background */}
+      <ParallaxBackground
+        imageUrl="https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/IMG_7384.JPG"
+        speed={0.2}
+        overlayClassName="bg-gradient-to-b from-zinc-900/95 via-zinc-900/90 to-zinc-900/95"
       />
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/95 via-zinc-900/90 to-zinc-900/95" />
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         {/* Header */}
         <motion.div
