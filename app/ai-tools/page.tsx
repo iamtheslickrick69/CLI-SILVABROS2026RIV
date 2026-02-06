@@ -5,7 +5,7 @@ import { AiToolsPageContent } from "./content";
 
 export const metadata = {
   title: "AI-Powered Solar Intelligence | RIV Solar",
-  description: "Get instant answers and personalized savings estimates with RIV Solar's AI chatbot and bill analyzer. No other solar company has tools like these.",
+  description: "Get instant answers and personalized savings estimates with RIV Solar's AI chatbot and bill analyzer. Serving California, Florida & Puerto Rico. No other solar company has tools like these.",
 };
 
 export default function AiToolsPage() {
@@ -25,7 +25,7 @@ export default function AiToolsPage() {
         <PageHeader
           title="AI-Powered Solar Intelligence"
           subtitle="Get instant answers and personalized savings estimates without talking to a salesperson. Our AI tools are available 24/7 and completely free to use."
-          backgroundImage="/images/ai-tools-hero.jpg"
+          backgroundImage="https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=1920&q=80"
           breadcrumb="AI Tools"
           ctaText="Try AI Calculator"
           secondaryCtaText="Chat with RIV"

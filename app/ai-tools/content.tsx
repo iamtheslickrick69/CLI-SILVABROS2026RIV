@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { MessageCircle, FileText, Sparkles, Upload, BarChart3, Clock, Shield, Zap, Brain, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export function AiToolsPageContent() {
   const chatbotFeatures = [
@@ -18,8 +19,8 @@ export function AiToolsPageContent() {
     },
     {
       icon: <Brain className="w-5 h-5" />,
-      title: "California Expert",
-      description: "Trained on PG&E, SDG&E, and SCE rate structures, NEM policies, and incentives.",
+      title: "Multi-Region Expert",
+      description: "Trained on CA, FL & PR utilities — SDG&E, PG&E, SCE, FPL, and LUMA rates & policies.",
     },
     {
       icon: <Zap className="w-5 h-5" />,
@@ -43,7 +44,7 @@ export function AiToolsPageContent() {
     {
       number: "01",
       title: "Upload Your Bill",
-      description: "Take a photo or upload a PDF of your utility bill. We accept PG&E, SDG&E, and SCE bills.",
+      description: "Take a photo or upload a PDF of your utility bill. We accept SDG&E, PG&E, SCE, FPL, and LUMA bills.",
     },
     {
       number: "02",
@@ -212,13 +213,13 @@ export function AiToolsPageContent() {
 
               <div className="space-y-4 mb-6">
                 <div className="bg-zinc-800 p-4 max-w-[80%]">
-                  <p className="text-zinc-300 text-sm">Hi! I'm the RIV AI assistant. Ask me anything about solar in California.</p>
+                  <p className="text-zinc-300 text-sm">Hi! I'm the RIV AI assistant. Ask me anything about solar in California, Florida, or Puerto Rico.</p>
                 </div>
                 <div className="bg-violet-500/10 p-4 max-w-[80%] ml-auto border border-violet-500/20">
-                  <p className="text-zinc-300 text-sm">How much can I save with my SDG&E bill?</p>
+                  <p className="text-zinc-300 text-sm">How much can I save on my electric bill?</p>
                 </div>
                 <div className="bg-zinc-800 p-4 max-w-[80%]">
-                  <p className="text-zinc-300 text-sm">SDG&E has the highest rates in the USA at ~55¢/kWh. Most SDG&E customers save 70-90% on their bills. Can you tell me your average monthly bill so I can give you a more specific estimate?</p>
+                  <p className="text-zinc-300 text-sm">Great question! It depends on your utility — SDG&E customers often save 70-90%, while FPL and LUMA customers typically save 60-80%. What's your monthly bill and which utility are you with?</p>
                 </div>
               </div>
 
@@ -241,6 +242,29 @@ export function AiToolsPageContent() {
                 Start Chatting
               </Button>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Break */}
+      <section className="w-full bg-zinc-900 relative overflow-hidden">
+        <div className="relative h-48 md:h-56">
+          <Image
+            src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1920&q=80"
+            alt="Solar panels generating clean energy"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 via-zinc-900/70 to-zinc-900" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-xl md:text-2xl font-light text-white text-center px-6"
+            >
+              <span className="text-violet-400">5,000+ bills analyzed</span> — see what AI can reveal about yours.
+            </motion.p>
           </div>
         </div>
       </section>
@@ -360,6 +384,31 @@ export function AiToolsPageContent() {
                 <p className="text-zinc-300 text-sm">Based on your usage patterns and current rates, solar would save you an estimated $97,200+ over 25 years.</p>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Break - Technology */}
+      <section className="w-full bg-zinc-800 relative overflow-hidden">
+        <div className="relative h-48 md:h-56">
+          <Image
+            src="https://images.unsplash.com/photo-1518173946687-a4c036bc4089?w=1920&q=80"
+            alt="Modern technology powering solar intelligence"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-800 via-zinc-800/80 to-zinc-800" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
+              <motion.p
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="text-lg md:text-xl text-white max-w-xl"
+              >
+                Powered by the same AI that powers ChatGPT — <span className="text-violet-400">trained specifically for solar.</span>
+              </motion.p>
+            </div>
           </div>
         </div>
       </section>
