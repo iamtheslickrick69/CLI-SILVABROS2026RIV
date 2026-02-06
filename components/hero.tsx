@@ -114,10 +114,10 @@ export function Hero() {
       </div>
       
       {/* Subtle overlay for text readability */}
-      <div className="absolute inset-0 bg-slate-950/40" />
+      <div className="absolute inset-0 bg-slate-950/55" />
 
-      {/* Vignette effect */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
+      {/* Vignette effect - intensified for dramatic focus */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)]" />
       
       {/* Content */}
       <div className="relative z-10 flex min-h-screen flex-col">
@@ -376,11 +376,11 @@ export function Hero() {
             className="hidden md:block mb-4 md:mb-6"
           >
             <Image
-              src="/images/yeethomepage.jpg"
+              src="/images/newpurple.jpg"
               alt="RIV Solar"
               width={400}
               height={160}
-              className="md:w-48 lg:w-[280px] h-auto drop-shadow-[0_0_25px_rgba(255,255,255,0.3)] [filter:hue-rotate(-12deg)_saturate(1.1)]"
+              className="md:w-48 lg:w-[280px] h-auto drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]"
               priority
             />
           </motion.div>
@@ -476,23 +476,7 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Scroll Indicator - Hidden on mobile, visible on tablet+ */}
-        <motion.div
-          className="hidden md:block absolute bottom-6 left-1/2 -translate-x-1/2"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors cursor-pointer"
-            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-          >
-            <span className="text-[10px] uppercase tracking-widest">Scroll</span>
-            <ChevronDown className="w-5 h-5" />
-          </motion.div>
-        </motion.div>
+        {/* Scroll Indicator - Hidden since hero content fills viewport */}
       </div>
     </section>
   )
