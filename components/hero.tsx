@@ -452,7 +452,7 @@ export function Hero() {
 
           {/* CTAs - AI Calculator first (matches headline promise), Talk to Pro second */}
           <div className="mt-6 md:mt-6 lg:mt-10 flex flex-col items-center gap-3 md:gap-3 lg:gap-4 sm:flex-row w-full sm:w-auto px-4 sm:px-0">
-            <Link href="/ai-tools" className="w-full sm:w-auto">
+            <Link href="#ai-tools" className="w-full sm:w-auto scroll-smooth">
               <Button
                 size="lg"
                 className="bg-violet-600 hover:bg-violet-500 px-6 lg:px-10 py-4 lg:py-6 min-h-[52px] lg:min-h-[64px] w-full sm:w-auto text-white uppercase font-semibold tracking-wide text-base lg:text-lg shadow-lg shadow-violet-500/25"
