@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { blogPosts, BlogPost } from '@/lib/blog-data';
+import { getAEOData } from '@/lib/blog-aeo-data';
 
 // Get related articles by category (same category, excluding current)
 function getRelatedArticles(currentSlug: string, category: string, limit: number = 3): BlogPost[] {
@@ -396,6 +397,9 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
   const htmlContent = parseMarkdown(content);
   const schemas = generateBlogSchema(blogPost, slug);
 
+  // Get AEO data for this post
+  const aeoData = getAEOData(slug);
+
   // Get related articles
   const sameCategoryArticles = getRelatedArticles(slug, blogPost.category, 3);
   const relatedArticles = getMoreRelatedArticles(slug, blogPost.category, sameCategoryArticles, 3);
@@ -464,6 +468,41 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
               <p className="text-zinc-500 text-xs mt-1 hidden sm:block">{blogPost.author.bio}</p>
             </div>
           </div>
+
+          {/* AEO Quick Answer Box - Optimized for AI/Voice Search */}
+          {aeoData && (
+            <div className="mb-10 p-6 bg-gradient-to-br from-violet-500/10 to-violet-600/5 border border-violet-500/30 rounded-xl">
+              <div className="flex items-center gap-2 mb-3">
+                <svg className="w-5 h-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <span className="text-violet-400 font-semibold text-sm uppercase tracking-wider">Quick Answer</span>
+              </div>
+              <p className="text-white text-lg leading-relaxed">{aeoData.quickAnswer}</p>
+            </div>
+          )}
+
+          {/* AEO Key Takeaways - Scannable Summary */}
+          {aeoData && aeoData.keyTakeaways.length > 0 && (
+            <div className="mb-10 p-6 bg-zinc-900/70 border border-zinc-800 rounded-xl">
+              <div className="flex items-center gap-2 mb-4">
+                <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="text-green-400 font-semibold text-sm uppercase tracking-wider">Key Takeaways</span>
+              </div>
+              <ul className="space-y-3">
+                {aeoData.keyTakeaways.map((takeaway, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-violet-500/20 text-violet-400 text-xs flex items-center justify-center font-medium">
+                      {index + 1}
+                    </span>
+                    <span className="text-zinc-300 leading-relaxed">{takeaway}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Content */}
           <div

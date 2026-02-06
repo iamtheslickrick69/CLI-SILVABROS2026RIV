@@ -8,9 +8,81 @@ export const metadata = {
   description: "See what 2,500+ families across California, Florida & Puerto Rico say about RIV Solar. Real reviews, real savings from SDG&E, PG&E, SCE, FPL & LUMA customers.",
 };
 
+// AggregateRating Schema for Google Rich Results
+const aggregateRatingSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "RIV Solar",
+  "image": "https://rivsolar.com/logo.png",
+  "url": "https://rivsolar.com",
+  "telephone": "(888) RIV-SOLAR",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "US"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "2583",
+    "reviewCount": "2583"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Maria G."
+      },
+      "datePublished": "2026-01-15",
+      "reviewBody": "Our SDG&E bill went from $340 to $11. I still can't believe it. RIV Solar changed our lives.",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      }
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Carlos M."
+      },
+      "datePublished": "2026-01-10",
+      "reviewBody": "Hurricane season used to terrify us. Now with solar and battery backup, we have peace of mind.",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      }
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Elena R."
+      },
+      "datePublished": "2026-01-05",
+      "reviewBody": "LUMA rates kept climbing and the blackouts were constant. Solar with battery changed everything.",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      }
+    }
+  ]
+};
+
 export default function ReviewsPage() {
   return (
     <>
+      {/* AggregateRating Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
+      />
+
       {/* Vertical margin lines */}
       <div className="pointer-events-none fixed inset-0 z-50">
         <div className="mx-auto h-full max-w-7xl">
