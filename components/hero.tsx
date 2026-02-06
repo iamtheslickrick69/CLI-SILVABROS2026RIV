@@ -114,7 +114,10 @@ export function Hero() {
       </div>
       
       {/* Subtle overlay for text readability */}
-      <div className="absolute inset-0 bg-slate-950/30" />
+      <div className="absolute inset-0 bg-slate-950/40" />
+
+      {/* Vignette effect */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
       
       {/* Content */}
       <div className="relative z-10 flex min-h-screen flex-col">
@@ -370,19 +373,19 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="hidden md:block mb-6 md:mb-8"
+            className="hidden md:block mb-4 md:mb-6"
           >
             <Image
-              src="/images/riv-solar-logo-transparent.jpg"
+              src="/images/yeethomepage.jpg"
               alt="RIV Solar"
-              width={600}
-              height={260}
-              className="md:w-64 lg:w-[500px] h-auto brightness-125 drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]"
+              width={400}
+              height={160}
+              className="md:w-48 lg:w-[280px] h-auto drop-shadow-[0_0_25px_rgba(255,255,255,0.3)] [filter:hue-rotate(-12deg)_saturate(1.1)]"
               priority
             />
           </motion.div>
 
-          <h1 className="max-w-5xl text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[9rem] font-[family-name:var(--font-barlow-condensed)] uppercase">
+          <h1 className="max-w-5xl text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-5xl lg:text-[5.5rem] font-[family-name:var(--font-barlow-condensed)] uppercase">
             {t.hero.headline.split(" ").map((word, i) => (
               <motion.span
                 key={i}
@@ -397,12 +400,12 @@ export function Hero() {
             ))}
           </h1>
 
-          <p className="mt-4 md:mt-6 lg:mt-10 max-w-xs md:max-w-xl lg:max-w-3xl text-balance text-center text-sm md:text-base lg:text-xl leading-relaxed text-white/80 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <p className="mt-3 md:mt-4 lg:mt-6 max-w-xs md:max-w-xl lg:max-w-3xl text-balance text-center text-sm md:text-base lg:text-lg leading-relaxed text-white/80 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             {t.hero.subheadline}
           </p>
 
           {/* Stats + Trust Badges - Combined row on mobile, separate on desktop */}
-          <div className="mt-6 md:mt-8 lg:mt-12 flex flex-col items-center gap-3 md:gap-6">
+          <div className="mt-4 md:mt-6 lg:mt-8 flex flex-col items-center gap-2 md:gap-4">
             {/* Stats Bar - Animated Counters */}
             <div className="flex items-center justify-center gap-3 md:gap-8 lg:gap-16 text-white/80">
               <div className="flex flex-col items-center">
@@ -411,7 +414,7 @@ export function Hero() {
                   prefix="$"
                   suffix="M+"
                   duration={2000}
-                  className="text-lg md:text-2xl lg:text-4xl font-medium text-white"
+                  className="text-lg md:text-2xl lg:text-3xl font-medium text-white"
                 />
                 <span className="text-[9px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.saved}</span>
               </div>
@@ -421,7 +424,7 @@ export function Hero() {
                   value={2500}
                   suffix="+"
                   duration={2000}
-                  className="text-lg md:text-2xl lg:text-4xl font-medium text-white"
+                  className="text-lg md:text-2xl lg:text-3xl font-medium text-white"
                 />
                 <span className="text-[9px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.families}</span>
               </div>
@@ -431,7 +434,7 @@ export function Hero() {
                   value={25}
                   suffix=" Yrs"
                   duration={1500}
-                  className="text-lg md:text-2xl lg:text-4xl font-medium text-white"
+                  className="text-lg md:text-2xl lg:text-3xl font-medium text-white"
                 />
                 <span className="text-[9px] md:text-xs lg:text-sm text-white/60">{t.hero.stats.warranty}</span>
               </div>
@@ -451,11 +454,11 @@ export function Hero() {
           </div>
 
           {/* CTAs - AI Calculator first (matches headline promise), Talk to Pro second */}
-          <div className="mt-6 md:mt-6 lg:mt-10 flex flex-col items-center gap-3 md:gap-3 lg:gap-4 sm:flex-row w-full sm:w-auto px-4 sm:px-0">
+          <div className="mt-4 md:mt-5 lg:mt-6 flex flex-col items-center gap-3 md:gap-3 lg:gap-4 sm:flex-row w-full sm:w-auto px-4 sm:px-0">
             <Link href="#ai-tools" className="w-full sm:w-auto scroll-smooth">
               <Button
                 size="lg"
-                className="bg-violet-600 hover:bg-violet-500 px-6 lg:px-10 py-4 lg:py-6 min-h-[52px] lg:min-h-[64px] w-full sm:w-auto text-white uppercase font-semibold tracking-wide text-base lg:text-lg shadow-lg shadow-violet-500/25"
+                className="bg-violet-600 hover:bg-violet-500 px-6 lg:px-8 py-3 lg:py-4 min-h-[48px] lg:min-h-[52px] w-full sm:w-auto text-white uppercase font-semibold tracking-wide text-sm lg:text-base shadow-lg shadow-violet-500/25"
               >
                 <Sparkles className="mr-2 h-5 w-5 lg:h-6 lg:w-6" />
                 {t.hero.cta.tryCalculator}
@@ -465,7 +468,7 @@ export function Hero() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white/30 bg-white/5 px-6 lg:px-10 py-4 lg:py-6 min-h-[52px] lg:min-h-[64px] w-full sm:w-auto text-white hover:bg-white/10 hover:text-white uppercase font-semibold tracking-wide text-base lg:text-lg"
+                className="border-white/30 bg-white/5 px-6 lg:px-8 py-3 lg:py-4 min-h-[48px] lg:min-h-[52px] w-full sm:w-auto text-white hover:bg-white/10 hover:text-white uppercase font-semibold tracking-wide text-sm lg:text-base"
               >
                 {t.hero.cta.talkToPro}
               </Button>
