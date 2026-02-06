@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Star, Quote, MapPin, Zap, DollarSign, Shield, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export function ReviewsPageContent() {
   const ratings = [
@@ -28,28 +29,28 @@ export function ReviewsPageContent() {
     },
     {
       id: 2,
-      quote: "After getting quotes from 5 companies, RIV was the only one who didn't pressure us. They laid out all the options, explained the pros and cons, and let us decide on our timeline. The install was flawless.",
-      author: "James T.",
-      location: "San Diego, CA",
-      utility: "SDG&E",
-      before: "$280/mo",
-      after: "$12/mo",
-      savings: "$3,216/year",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=James&backgroundColor=88498F",
-      systemSize: "7.2 kW",
+      quote: "Hurricane season used to terrify us. Now with solar and battery backup, we have peace of mind. During Ian, we were the only house with power for 3 days. Best investment we ever made.",
+      author: "Carlos M.",
+      location: "Tampa, FL",
+      utility: "FPL",
+      before: "$285/mo",
+      after: "$18/mo",
+      savings: "$3,204/year",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos&backgroundColor=10B981",
+      systemSize: "9.8 kW + Battery",
       featured: true,
     },
     {
       id: 3,
-      quote: "The battery storage was a game-changer. During the last outage, we were the only house on the block with power. My neighbors are all calling RIV now.",
-      author: "Angela R.",
-      location: "Riverside, CA",
-      utility: "SCE",
-      before: "$295/mo",
-      after: "$22/mo",
-      savings: "$3,276/year",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Angela&backgroundColor=C55A7B",
-      systemSize: "9.1 kW + Powerwall",
+      quote: "LUMA rates kept climbing and the blackouts were constant. Solar with battery changed everything. My family finally has reliable power and our bill dropped from $380 to $25.",
+      author: "Elena R.",
+      location: "San Juan, PR",
+      utility: "LUMA",
+      before: "$380/mo",
+      after: "$25/mo",
+      savings: "$4,260/year",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena&backgroundColor=EC4899",
+      systemSize: "10.2 kW + Powerwall",
       featured: true,
     },
   ];
@@ -68,14 +69,14 @@ export function ReviewsPageContent() {
     },
     {
       id: 5,
-      quote: "Two kids, pool, AC blasting all summer — and our bill is now $15. Should've done this years ago. The ROI is incredible.",
-      author: "Lisa & Tom P.",
-      location: "Murrieta, CA",
-      utility: "SCE",
-      before: "$420/mo",
-      after: "$15/mo",
-      savings: "$4,860/year",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa&backgroundColor=6B7280",
+      quote: "Florida summers are brutal on electric bills. Now I run my AC all day and barely pay anything. RIV sized my system perfectly.",
+      author: "Mike & Sarah T.",
+      location: "Orlando, FL",
+      utility: "FPL",
+      before: "$320/mo",
+      after: "$22/mo",
+      savings: "$3,576/year",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mike&backgroundColor=6B7280",
     },
     {
       id: 6,
@@ -90,14 +91,14 @@ export function ReviewsPageContent() {
     },
     {
       id: 7,
-      quote: "From consultation to install, everything was handled professionally. No surprises, no hidden fees. They even helped us maximize the tax credit.",
-      author: "Patricia M.",
-      location: "Oceanside, CA",
-      utility: "SDG&E",
+      quote: "Living in Puerto Rico means dealing with constant LUMA outages. My battery kicks in automatically now. No more losing food in the freezer.",
+      author: "Jorge L.",
+      location: "Bayamón, PR",
+      utility: "LUMA",
       before: "$365/mo",
-      after: "$20/mo",
-      savings: "$4,140/year",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Patricia&backgroundColor=F59E0B",
+      after: "$28/mo",
+      savings: "$4,044/year",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Jorge&backgroundColor=F59E0B",
     },
     {
       id: 8,
@@ -112,10 +113,10 @@ export function ReviewsPageContent() {
     },
     {
       id: 9,
-      quote: "The installation crew was incredible. Clean, professional, and they finished in one day. System looks great and works even better.",
+      quote: "Miami humidity means AC runs 24/7. Solar cut my FPL bill by 90%. The installation was quick and the team was super professional.",
       author: "Jennifer S.",
-      location: "Carlsbad, CA",
-      utility: "SDG&E",
+      location: "Miami, FL",
+      utility: "FPL",
       before: "$355/mo",
       after: "$16/mo",
       savings: "$4,068/year",
@@ -139,39 +140,41 @@ export function ReviewsPageContent() {
       },
     },
     {
-      title: "The Chen Household",
-      location: "Irvine, CA",
-      utility: "SCE",
-      situation: "Retired couple concerned about rising rates and fixed income.",
-      solution: "6.8 kW system with $0 down financing.",
+      title: "The Rodriguez Family",
+      location: "Tampa, FL",
+      utility: "FPL",
+      situation: "Hurricane-prone area with frequent outages. Needed backup power and bill relief.",
+      solution: "11.4 kW system with battery backup for storm resilience.",
       results: {
-        before: "$245/mo",
-        after: "$12/mo",
-        annualSavings: "$2,796",
-        paybackPeriod: "6.1 years",
-        lifetime: "$69,900+",
+        before: "$395/mo",
+        after: "$19/mo",
+        annualSavings: "$4,512",
+        paybackPeriod: "5.8 years",
+        lifetime: "$112,800+",
       },
     },
     {
-      title: "The Johnson Family",
-      location: "Fresno, CA",
-      utility: "PG&E",
-      situation: "New EV owners worried about increased electricity usage.",
-      solution: "12.4 kW system sized for home + EV charging.",
+      title: "The Ortiz Household",
+      location: "Ponce, PR",
+      utility: "LUMA",
+      situation: "Constant blackouts disrupting work-from-home and medical equipment needs.",
+      solution: "12.8 kW system with dual Powerwall for 24-hour backup.",
       results: {
-        before: "$520/mo",
-        after: "$28/mo",
-        annualSavings: "$5,904",
-        paybackPeriod: "4.8 years",
-        lifetime: "$147,600+",
+        before: "$420/mo",
+        after: "$22/mo",
+        annualSavings: "$4,776",
+        paybackPeriod: "5.4 years",
+        lifetime: "$119,400+",
       },
     },
   ];
 
   const utilityBreakdown = [
-    { utility: "SDG&E", customers: "1,247", avgSavings: "$3,840/year", avgBefore: "$342", avgAfter: "$22" },
-    { utility: "PG&E", customers: "823", avgSavings: "$3,156/year", avgBefore: "$298", avgAfter: "$35" },
-    { utility: "SCE", customers: "612", avgSavings: "$2,892/year", avgBefore: "$276", avgAfter: "$35" },
+    { utility: "SDG&E", region: "California", customers: "847", avgSavings: "$3,840/year", avgBefore: "$342", avgAfter: "$22" },
+    { utility: "PG&E", region: "California", customers: "523", avgSavings: "$3,156/year", avgBefore: "$298", avgAfter: "$35" },
+    { utility: "SCE", region: "California", customers: "412", avgSavings: "$2,892/year", avgBefore: "$276", avgAfter: "$35" },
+    { utility: "FPL", region: "Florida", customers: "489", avgSavings: "$3,420/year", avgBefore: "$305", avgAfter: "$20" },
+    { utility: "LUMA", region: "Puerto Rico", customers: "312", avgSavings: "$4,104/year", avgBefore: "$378", avgAfter: "$36" },
   ];
 
   return (
@@ -285,6 +288,29 @@ export function ReviewsPageContent() {
         </div>
       </section>
 
+      {/* Visual Break - Solar Home */}
+      <section className="w-full bg-zinc-900 relative overflow-hidden">
+        <div className="relative h-48 md:h-64">
+          <Image
+            src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1920&q=80"
+            alt="Beautiful home with solar panels"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 via-zinc-900/70 to-zinc-900" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-xl md:text-2xl font-light text-white text-center px-6"
+            >
+              Every story starts with a simple question: <span className="text-violet-400">"What if I stopped renting my power?"</span>
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
       {/* All Reviews Grid */}
       <section className="w-full bg-zinc-900 py-24 border-b border-zinc-700/30">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
@@ -348,6 +374,33 @@ export function ReviewsPageContent() {
         </div>
       </section>
 
+      {/* Visual Break - Installation */}
+      <section className="w-full bg-zinc-800 relative overflow-hidden">
+        <div className="relative h-48 md:h-56">
+          <Image
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80"
+            alt="Solar panel installation"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-800 via-zinc-800/80 to-zinc-800" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="max-w-xl"
+              >
+                <p className="text-lg md:text-xl text-white">
+                  <span className="text-violet-400 font-medium">$12M+ saved</span> for families just like yours.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Case Studies */}
       <section className="w-full bg-zinc-800 py-24 border-b border-zinc-700/30">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
@@ -365,7 +418,7 @@ export function ReviewsPageContent() {
               Detailed Success Stories
             </h2>
             <p className="text-zinc-400 max-w-2xl">
-              Dive deeper into how real California families are saving with solar.
+              Dive deeper into how real families across all our service areas are saving with solar.
             </p>
           </motion.div>
 
@@ -441,14 +494,14 @@ export function ReviewsPageContent() {
               <span className="text-sm font-medium text-zinc-400 tracking-wide">By Utility</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-normal text-white mb-4">
-              Savings Across California
+              Savings Across All Regions
             </h2>
             <p className="text-zinc-400 max-w-2xl mx-auto">
-              Here's how our customers are saving, broken down by their utility company.
+              Here's how our customers are saving across California, Florida & Puerto Rico.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {utilityBreakdown.map((utility, index) => (
               <motion.div
                 key={utility.utility}
@@ -456,10 +509,11 @@ export function ReviewsPageContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="p-8 bg-zinc-800/50 border border-zinc-700/50 text-center"
+                className="p-6 bg-zinc-800/50 border border-zinc-700/50 text-center"
               >
-                <h3 className="text-2xl font-medium text-white mb-2">{utility.utility}</h3>
-                <p className="text-violet-500 text-sm mb-6">{utility.customers} happy customers</p>
+                <span className="text-xs text-violet-400 uppercase tracking-wider">{utility.region}</span>
+                <h3 className="text-2xl font-medium text-white mb-1">{utility.utility}</h3>
+                <p className="text-zinc-500 text-sm mb-4">{utility.customers} customers</p>
                 
                 <div className="space-y-4">
                   <div className="p-4 bg-zinc-900 border border-zinc-700">
@@ -524,8 +578,8 @@ export function ReviewsPageContent() {
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-green-500 mt-2" />
                   <div>
-                    <span className="text-white font-medium">Local California experts</span>
-                    <p className="text-zinc-400 text-sm">We know PG&E, SDG&E, and SCE inside out. Californians helping Californians.</p>
+                    <span className="text-white font-medium">Local utility experts</span>
+                    <p className="text-zinc-400 text-sm">We know SDG&E, PG&E, SCE, FPL, and LUMA inside out. Local teams in every region.</p>
                   </div>
                 </li>
               </ul>
@@ -539,7 +593,7 @@ export function ReviewsPageContent() {
             >
               <div className="text-6xl font-light text-violet-500 mb-4">2,500+</div>
               <h3 className="text-2xl font-medium text-white mb-2">Happy Families</h3>
-              <p className="text-zinc-400 mb-6">And counting. Join California's fastest-growing solar community.</p>
+              <p className="text-zinc-400 mb-6">And counting. Join the fastest-growing solar community in CA, FL & PR.</p>
               <div className="flex items-center justify-center gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-6 h-6 fill-violet-500 text-violet-500" />

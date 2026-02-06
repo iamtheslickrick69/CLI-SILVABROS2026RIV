@@ -5,7 +5,7 @@ import { ReviewsPageContent } from "./content";
 
 export const metadata = {
   title: "Customer Reviews | RIV Solar",
-  description: "See what 2,500+ California families say about RIV Solar. Real reviews, real savings, real results from PG&E, SDG&E, and SCE customers.",
+  description: "See what 2,500+ families across California, Florida & Puerto Rico say about RIV Solar. Real reviews, real savings from SDG&E, PG&E, SCE, FPL & LUMA customers.",
 };
 
 export default function ReviewsPage() {
@@ -23,9 +23,9 @@ export default function ReviewsPage() {
 
       <main>
         <PageHeader
-          title="Real California Families, Real Savings"
-          subtitle="Don't take our word for it. See what 2,500+ homeowners say about their experience with RIV Solar — and the savings they're seeing every month."
-          backgroundImage="/images/reviews-hero.jpg"
+          title="Real Families, Real Savings"
+          subtitle="Don't take our word for it. See what 2,500+ homeowners across California, Florida & Puerto Rico say about their experience with RIV Solar."
+          backgroundImage="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&q=80"
           breadcrumb="Reviews"
           ctaText="Get Your Free Quote"
           secondaryCtaText="Calculate Savings"

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 interface RateItem {
@@ -9,8 +9,70 @@ interface RateItem {
   event: string;
 }
 
-interface RateHistoryTimelineProps {
+type Region = 'california' | 'florida' | 'puerto-rico';
+
+interface RegionData {
+  id: Region;
+  label: string;
+  shortLabel: string;
+  title: string;
+  subtitle: string;
   rateHistory: RateItem[];
+}
+
+const regionData: RegionData[] = [
+  {
+    id: 'california',
+    label: 'California',
+    shortLabel: 'CA',
+    title: 'California Rates Have Skyrocketed',
+    subtitle: 'A decade of relentless rate increases has more than doubled the cost of electricity for California families.',
+    rateHistory: [
+      { year: "2014", rate: "21¢", event: "NEM 2.0 introduced" },
+      { year: "2017", rate: "25¢", event: "First major rate hike" },
+      { year: "2020", rate: "32¢", event: "Wildfire liability costs added" },
+      { year: "2022", rate: "38¢", event: "Infrastructure upgrades begin" },
+      { year: "2023", rate: "42¢", event: "NEM 3.0 takes effect" },
+      { year: "2026", rate: "48¢", event: "Current rates" },
+      { year: "2030", rate: "65¢+", event: "Projected rates" },
+    ]
+  },
+  {
+    id: 'florida',
+    label: 'Florida',
+    shortLabel: 'FL',
+    title: 'Florida Rates Keep Climbing',
+    subtitle: 'Hurricane damage, grid upgrades, and rising fuel costs are driving electricity prices higher across the Sunshine State.',
+    rateHistory: [
+      { year: "2014", rate: "12¢", event: "FPL base rates" },
+      { year: "2017", rate: "13¢", event: "Hurricane Irma costs" },
+      { year: "2020", rate: "14¢", event: "Grid hardening begins" },
+      { year: "2022", rate: "16¢", event: "Hurricane Ian costs added" },
+      { year: "2024", rate: "18¢", event: "Fuel cost surcharges" },
+      { year: "2026", rate: "21¢", event: "Current rates" },
+      { year: "2030", rate: "28¢+", event: "Projected rates" },
+    ]
+  },
+  {
+    id: 'puerto-rico',
+    label: 'Puerto Rico',
+    shortLabel: 'PR',
+    title: 'Puerto Rico Has the Highest Rates',
+    subtitle: 'Grid failures, fuel imports, and LUMA management have made Puerto Rico electricity among the most expensive in the US.',
+    rateHistory: [
+      { year: "2014", rate: "22¢", event: "PREPA average rate" },
+      { year: "2017", rate: "26¢", event: "Hurricane Maria devastation" },
+      { year: "2020", rate: "24¢", event: "Partial grid rebuild" },
+      { year: "2021", rate: "28¢", event: "LUMA takes over" },
+      { year: "2023", rate: "32¢", event: "Fuel adjustment charges" },
+      { year: "2026", rate: "38¢", event: "Current rates" },
+      { year: "2030", rate: "50¢+", event: "Projected rates" },
+    ]
+  }
+];
+
+interface RateHistoryTimelineProps {
+  rateHistory?: RateItem[];
 }
 
 // Animated counter component for the rate values
@@ -147,43 +209,47 @@ function TimelineItem({ item, index, totalItems }: { item: RateItem; index: numb
   );
 }
 
-export function RateHistoryTimeline({ rateHistory }: RateHistoryTimelineProps) {
+export function RateHistoryTimeline({ rateHistory: _legacyRateHistory }: RateHistoryTimelineProps) {
+  const [activeRegion, setActiveRegion] = useState<Region>('california');
   const containerRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
-  
+
+  const currentRegion = regionData.find(r => r.id === activeRegion) || regionData[0];
+  const rateHistory = currentRegion.rateHistory;
+
   // Scroll progress for the entire timeline section
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
-  
+
   // Smooth spring animation for the line
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
-  
+
   // Transform scroll progress to line height (0% to 100%)
   const lineHeight = useTransform(smoothProgress, [0.1, 0.9], ["0%", "100%"]);
-  
+
   // Background gradient intensity based on scroll
   const bgOpacity = useTransform(smoothProgress, [0, 0.5, 1], [0, 0.05, 0]);
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="w-full bg-zinc-900 py-24 border-b border-zinc-700/30 relative overflow-hidden"
     >
       {/* Animated background glow */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 pointer-events-none"
-        style={{ 
+        style={{
           background: "radial-gradient(ellipse at center, rgba(239, 68, 68, 0.1) 0%, transparent 70%)",
           opacity: bgOpacity
         }}
       />
-      
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative">
         {/* Header */}
         <motion.div
@@ -191,52 +257,82 @@ export function RateHistoryTimeline({ rateHistory }: RateHistoryTimelineProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10"
         >
           <div className="flex items-center gap-3 px-4 py-2 border border-zinc-700 w-fit mb-6">
-            <motion.div 
+            <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-2.5 h-2.5 bg-violet-500" 
+              className="w-2.5 h-2.5 bg-violet-500"
             />
             <span className="text-sm font-medium text-zinc-400 tracking-wide">Rate History</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-normal text-white mb-4">
-            How PG&E Rates Have Skyrocketed
+            {currentRegion.title}
           </h2>
           <p className="text-zinc-400 max-w-2xl">
-            A decade of relentless rate increases has more than doubled the cost of electricity for California families.
+            {currentRegion.subtitle}
           </p>
         </motion.div>
+
+        {/* Region Tabs */}
+        <div className="mb-12 flex flex-wrap gap-2">
+          {regionData.map((region) => {
+            const isActive = activeRegion === region.id;
+            return (
+              <button
+                key={region.id}
+                onClick={() => setActiveRegion(region.id)}
+                className={`group relative px-5 py-3 text-[12px] uppercase tracking-[0.12em] font-medium rounded-lg transition-all duration-300 ${
+                  isActive
+                    ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/25'
+                    : 'bg-zinc-800/50 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200 border border-zinc-700/50 hover:border-zinc-600'
+                }`}
+              >
+                <span className="hidden sm:inline">{region.label}</span>
+                <span className="sm:hidden">{region.shortLabel}</span>
+              </button>
+            );
+          })}
+        </div>
 
         {/* Timeline */}
         <div ref={timelineRef} className="relative">
           {/* Background line (gray) */}
           <div className="absolute top-0 bottom-0 left-[50%] w-px bg-zinc-700/50 hidden md:block" />
-          
+
           {/* Animated progress line (violet) */}
-          <motion.div 
+          <motion.div
             className="absolute top-0 left-[50%] w-0.5 bg-gradient-to-b from-violet-500 via-violet-400 to-red-500 hidden md:block origin-top"
             style={{ height: lineHeight }}
           />
-          
+
           {/* Glow effect on the line */}
-          <motion.div 
+          <motion.div
             className="absolute top-0 left-[50%] w-4 -ml-1.5 bg-gradient-to-b from-violet-500/30 via-violet-400/20 to-transparent blur-sm hidden md:block origin-top"
             style={{ height: lineHeight }}
           />
-          
+
           {/* Timeline items */}
-          <div className="space-y-12 md:space-y-16">
-            {rateHistory.map((item, index) => (
-              <TimelineItem 
-                key={item.year} 
-                item={item} 
-                index={index}
-                totalItems={rateHistory.length}
-              />
-            ))}
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeRegion}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-12 md:space-y-16"
+            >
+              {rateHistory.map((item, index) => (
+                <TimelineItem
+                  key={`${activeRegion}-${item.year}`}
+                  item={item}
+                  index={index}
+                  totalItems={rateHistory.length}
+                />
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
         
         {/* End indicator */}

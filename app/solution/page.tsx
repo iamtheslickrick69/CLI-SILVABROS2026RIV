@@ -25,7 +25,7 @@ export default function SolutionPage() {
         <PageHeader
           title="Your Path to Energy Freedom"
           subtitle="From your first call to your first savings — we handle everything. No pressure, no hidden fees, just honest solar solutions designed for your home."
-          backgroundImage="/images/solution-hero.jpg"
+          backgroundImage="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80"
           breadcrumb="The Solution"
           ctaText="Start Your Journey"
           secondaryCtaText="Talk to a Pro"

@@ -4,8 +4,8 @@ import { Footer } from "@/components/footer";
 import { ProblemPageContent } from "./content";
 
 export const metadata = {
-  title: "The California Energy Crisis | RIV Solar",
-  description: "California utilities have increased rates by 114% since 2014. Learn why electricity bills are skyrocketing and how solar can protect your family.",
+  title: "The Energy Crisis Explained | Rising Utility Rates | RIV Solar",
+  description: "Electricity rates in California, Florida & Puerto Rico are skyrocketing. Learn why your bills keep climbing and how solar can protect your family from rising utility costs.",
 };
 
 export default function ProblemPage() {
@@ -23,9 +23,9 @@ export default function ProblemPage() {
 
       <main>
         <PageHeader
-          title="The California Energy Crisis Explained"
-          subtitle="California has the highest electricity rates in the continental United States. Here's why your bills keep climbing — and what you can do about it."
-          backgroundImage="/images/problem-hero.jpg"
+          title="The Energy Crisis Explained"
+          subtitle="Electricity rates across California, Florida, and Puerto Rico are among the highest in the nation. Here's why your bills keep climbing — and what you can do about it."
+          backgroundImage="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920&q=80"
           breadcrumb="The Problem"
           ctaText="Calculate Your Savings"
           secondaryCtaText="See the Solution"

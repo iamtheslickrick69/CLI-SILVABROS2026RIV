@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 interface PageHeaderProps {
   title: string;
@@ -33,6 +34,10 @@ function PageHeader({
   const [mobileServiceAreasOpen, setMobileServiceAreasOpen] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const pathname = usePathname();
+
+  // Helper to check if a link is active
+  const isActive = (path: string) => pathname === path;
 
   // Smart header - hide on scroll down, show on scroll up
   useEffect(() => {
@@ -93,22 +98,22 @@ function PageHeader({
 
               {/* Desktop Navigation */}
               <div className="hidden items-center gap-1 lg:flex">
-                <Link href="/problem" className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
+                <Link href="/problem" className={`px-4 py-2 text-sm rounded-lg transition-all ${isActive('/problem') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}>
                   Problem
                 </Link>
-                <Link href="/ai-tools" className="px-4 py-2 text-sm text-violet-400 hover:text-violet-300 hover:bg-violet-500/10 rounded-lg transition-all font-medium">
+                <Link href="/ai-tools" className={`px-4 py-2 text-sm rounded-lg transition-all ${isActive('/ai-tools') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}>
                   AI Tools
                 </Link>
-                <Link href="/solution" className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
+                <Link href="/solution" className={`px-4 py-2 text-sm rounded-lg transition-all ${isActive('/solution') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}>
                   Solution
                 </Link>
-                <Link href="/reviews" className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
+                <Link href="/reviews" className={`px-4 py-2 text-sm rounded-lg transition-all ${isActive('/reviews') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}>
                   Reviews
                 </Link>
                 <Link href="/#faq" className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
                   FAQ
                 </Link>
-                <Link href="/insights" className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
+                <Link href="/insights" className={`px-4 py-2 text-sm rounded-lg transition-all ${isActive('/insights') || pathname.startsWith('/insights/') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}>
                   Insights
                 </Link>
                 {/* Service Areas Dropdown */}
@@ -182,22 +187,22 @@ function PageHeader({
               className="absolute left-4 right-4 top-full mt-2 bg-zinc-900/95 backdrop-blur-md border border-white/10 rounded-2xl lg:hidden overflow-hidden"
             >
               <div className="flex flex-col p-4 gap-1">
-                <Link href="/problem" className="text-white/70 hover:text-white hover:bg-white/10 py-3 px-4 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/problem" className={`py-3 px-4 rounded-xl transition-all ${isActive('/problem') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`} onClick={() => setMobileMenuOpen(false)}>
                   Problem
                 </Link>
-                <Link href="/ai-tools" className="text-violet-400 hover:text-violet-300 hover:bg-violet-500/10 py-3 px-4 rounded-xl transition-all font-medium" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/ai-tools" className={`py-3 px-4 rounded-xl transition-all ${isActive('/ai-tools') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`} onClick={() => setMobileMenuOpen(false)}>
                   AI Tools
                 </Link>
-                <Link href="/solution" className="text-white/70 hover:text-white hover:bg-white/10 py-3 px-4 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/solution" className={`py-3 px-4 rounded-xl transition-all ${isActive('/solution') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`} onClick={() => setMobileMenuOpen(false)}>
                   Solution
                 </Link>
-                <Link href="/reviews" className="text-white/70 hover:text-white hover:bg-white/10 py-3 px-4 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/reviews" className={`py-3 px-4 rounded-xl transition-all ${isActive('/reviews') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`} onClick={() => setMobileMenuOpen(false)}>
                   Reviews
                 </Link>
                 <Link href="/#faq" className="text-white/70 hover:text-white hover:bg-white/10 py-3 px-4 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
                   FAQ
                 </Link>
-                <Link href="/insights" className="text-white/70 hover:text-white hover:bg-white/10 py-3 px-4 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/insights" className={`py-3 px-4 rounded-xl transition-all ${isActive('/insights') || pathname.startsWith('/insights/') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`} onClick={() => setMobileMenuOpen(false)}>
                   Insights
                 </Link>
                 {/* Mobile Service Areas */}

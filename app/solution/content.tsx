@@ -243,6 +243,31 @@ export function SolutionPageContent() {
         </div>
       </section>
 
+      {/* Visual Break - Installation Image */}
+      <section className="w-full bg-zinc-900 relative overflow-hidden">
+        <div className="relative h-64 md:h-80">
+          <Image
+            src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1920&q=80"
+            alt="Professional solar panel installation on residential roof"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 via-zinc-900/60 to-zinc-900" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center px-6"
+            >
+              <p className="text-2xl md:text-3xl font-light text-white max-w-3xl">
+                "Quality equipment. Expert installation. <span className="text-violet-400">Real results.</span>"
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Equipment Section */}
       <section className="w-full bg-zinc-900 py-24 border-b border-zinc-700/30">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
@@ -288,6 +313,31 @@ export function SolutionPageContent() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Break - Happy Homeowner */}
+      <section className="w-full bg-zinc-800 relative overflow-hidden">
+        <div className="relative h-48 md:h-64">
+          <Image
+            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&q=80"
+            alt="Happy homeowner with solar panels"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-800 via-zinc-800/80 to-zinc-800" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
+              <motion.p
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="text-xl md:text-2xl font-light text-white max-w-xl"
+              >
+                Join <span className="text-violet-400 font-medium">2,500+ families</span> who've made the switch to solar.
+              </motion.p>
+            </div>
           </div>
         </div>
       </section>
@@ -387,8 +437,8 @@ export function SolutionPageContent() {
               className="relative aspect-square bg-zinc-800 border border-zinc-700 overflow-hidden"
             >
               <Image
-                src="/images/solution-detect.png"
-                alt="Solar system design"
+                src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=800&q=80"
+                alt="Tesla Powerwall battery storage system with solar panels"
                 fill
                 className="object-cover"
               />

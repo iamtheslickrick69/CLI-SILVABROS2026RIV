@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useSpring, useInView } from "framer-mo
 import { TrendingUp, Zap, DollarSign, AlertTriangle, Calendar, Flame, Car, Server } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { RateHistoryTimeline } from "@/components/rate-history-timeline";
+import Image from "next/image";
 
 export function ProblemPageContent() {
   const crisisStats = [
@@ -183,6 +184,29 @@ export function ProblemPageContent() {
         </div>
       </section>
 
+      {/* Visual Break - Power Lines Image */}
+      <section className="w-full bg-zinc-900 relative overflow-hidden">
+        <div className="relative h-64 md:h-80">
+          <Image
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80"
+            alt="Power lines and electrical grid"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-900/50 to-zinc-800" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-2xl md:text-3xl font-light text-white text-center px-6 max-w-3xl"
+            >
+              "The grid wasn't built for today's demand — and you're paying the price."
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
       {/* The Bottom Line */}
       <section className="w-full bg-zinc-800 py-24 border-b border-zinc-700/30">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
@@ -202,7 +226,7 @@ export function ProblemPageContent() {
               <div className="space-y-6">
                 <div className="p-6 bg-red-500/10 border border-red-500/30">
                   <h3 className="text-lg font-medium text-red-400 mb-2">Option 1: Do Nothing</h3>
-                  <p className="text-zinc-300">Continue paying PG&E/SDG&E/SCE. Watch your bills climb to $600-700/month by 2030. Send $100,000+ to utility shareholders over the next 25 years.</p>
+                  <p className="text-zinc-300">Continue paying rising utility rates. Watch your bills climb year after year. Send $100,000+ to utility shareholders over the next 25 years.</p>
                 </div>
                 <div className="p-6 bg-green-500/10 border border-green-500/30">
                   <h3 className="text-lg font-medium text-green-400 mb-2">Option 2: Go Solar</h3>
