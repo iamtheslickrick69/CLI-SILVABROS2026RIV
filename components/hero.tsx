@@ -10,6 +10,7 @@ import { useScrollDirection } from "@/hooks/use-scroll-direction"
 import { useLanguage } from "@/lib/i18n"
 import { LanguageToggle } from "@/components/language-toggle"
 import { AnimatedCounter } from "@/components/animated-counter"
+import { usePathname } from "next/navigation"
 
 const videos = [
   "https://pub-716deb83cd7742f6beb7fe0ea0cdebcb.r2.dev/solarvid.mp4",
@@ -27,6 +28,11 @@ export function Hero() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const { t } = useLanguage();
+  const pathname = usePathname();
+
+  // Helper to check if a link is active
+  const isActive = (path: string) => pathname === path;
+  const isInsightsActive = pathname === '/insights' || pathname.startsWith('/insights/');
 
   // Use scroll direction hook for smart hide/show
   const { direction, isAtTop } = useScrollDirection({ threshold: 10, topOffset: 100 });
@@ -160,22 +166,22 @@ export function Hero() {
                   
                   {/* Desktop Navigation */}
                   <div className="hidden items-center gap-1 lg:flex">
-                    <Link href="/problem" className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
+                    <Link href="/problem" className={`px-4 py-2 text-sm rounded-lg transition-all ${isActive('/problem') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}>
                       {t.nav.problem}
                     </Link>
-                    <Link href="/ai-tools" className="px-4 py-2 text-sm text-violet-400 hover:text-violet-300 hover:bg-violet-500/10 rounded-lg transition-all font-medium">
+                    <Link href="/ai-tools" className={`px-4 py-2 text-sm rounded-lg transition-all ${isActive('/ai-tools') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}>
                       {t.nav.aiTools}
                     </Link>
-                    <Link href="/solution" className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
+                    <Link href="/solution" className={`px-4 py-2 text-sm rounded-lg transition-all ${isActive('/solution') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}>
                       {t.nav.solution}
                     </Link>
-                    <Link href="/reviews" className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
+                    <Link href="/reviews" className={`px-4 py-2 text-sm rounded-lg transition-all ${isActive('/reviews') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}>
                       {t.nav.reviews}
                     </Link>
                     <Link href="/#faq" className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
                       {t.nav.faq}
                     </Link>
-                    <Link href="/insights" className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all">
+                    <Link href="/insights" className={`px-4 py-2 text-sm rounded-lg transition-all ${isInsightsActive ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}>
                       {t.nav.insights}
                     </Link>
                     {/* Service Areas Dropdown */}
@@ -258,28 +264,28 @@ export function Hero() {
                   <div className="flex flex-col p-4 gap-1">
                     <Link
                       href="/problem"
-                      className="text-white/70 hover:text-white hover:bg-white/10 py-4 px-4 rounded-xl transition-all min-h-[48px] flex items-center text-base"
+                      className={`py-4 px-4 rounded-xl transition-all min-h-[48px] flex items-center text-base ${isActive('/problem') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t.nav.problem}
                     </Link>
                     <Link
                       href="/ai-tools"
-                      className="text-violet-400 hover:text-violet-300 hover:bg-violet-500/10 py-4 px-4 rounded-xl transition-all font-medium min-h-[48px] flex items-center text-base"
+                      className={`py-4 px-4 rounded-xl transition-all min-h-[48px] flex items-center text-base ${isActive('/ai-tools') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t.nav.aiTools}
                     </Link>
                     <Link
                       href="/solution"
-                      className="text-white/70 hover:text-white hover:bg-white/10 py-4 px-4 rounded-xl transition-all min-h-[48px] flex items-center text-base"
+                      className={`py-4 px-4 rounded-xl transition-all min-h-[48px] flex items-center text-base ${isActive('/solution') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t.nav.solution}
                     </Link>
                     <Link
                       href="/reviews"
-                      className="text-white/70 hover:text-white hover:bg-white/10 py-4 px-4 rounded-xl transition-all min-h-[48px] flex items-center text-base"
+                      className={`py-4 px-4 rounded-xl transition-all min-h-[48px] flex items-center text-base ${isActive('/reviews') ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t.nav.reviews}
@@ -293,7 +299,7 @@ export function Hero() {
                     </Link>
                     <Link
                       href="/insights"
-                      className="text-white/70 hover:text-white hover:bg-white/10 py-4 px-4 rounded-xl transition-all min-h-[48px] flex items-center text-base"
+                      className={`py-4 px-4 rounded-xl transition-all min-h-[48px] flex items-center text-base ${isInsightsActive ? 'text-violet-400 bg-violet-500/10 font-medium' : 'text-white/70 hover:text-white hover:bg-white/10'}`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t.nav.insights}
